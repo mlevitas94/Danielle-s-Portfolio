@@ -2,26 +2,43 @@
 .landingCont{
     font-family: $fontStyle1;
     height: 100vh;
-    h1{
-        position: absolute;
-        text-align: center;
+    background-image: url('../../assets/landing_image.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .landingTitle{
         width: 100%;
-        top: 10vh;
-        font-weight: bolder;
-        font-size: 3rem;
-        color: $accent2;
-        text-shadow: 4px 6px 10px black;
-        
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        h1{
+            width: 100%;
+            font-weight: bolder;
+            font-size: 3rem;
+            color: $accent2;
+            text-shadow: 4px 6px 10px black;
+            margin-bottom: 22px;
+            padding-top: 5vh;
+            position: relative;
+            
+        }
+        h2{
+            font-weight: bolder;
+            font-size: 1.5rem;
+            color: $accent3;
+            font-family: $fontStyle2;
+        }
     }
     .verticle{
-        background-image: url('../../assets/landing_image.JPG');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
     
         .verticleFlex{
             display: inline-flex;
@@ -29,6 +46,8 @@
             justify-content: center;
             align-items: center;
             height: 50%;
+            position: relative;
+            top: 10vh;
     
             .v-line{
                 border-left: 2px solid $accent1;
@@ -45,19 +64,64 @@
                     text-align: center;
                     margin-bottom: -2px;
                     font-size: $size1;
+                    background-color: transparent;
+                    transition: background-color 0.2s linear;
+                    overflow: hidden;
+                    position: relative;
+                    a{
+                        color: black;
+                        text-decoration: none;
+                        display: inline-block;
+                        transition: transform 0.2s linear;
+                    }
+                    &:after {
+                        background: #fff;
+                        content: "";
+                        height: 155px;
+                        left: -75px;
+                        opacity: .2;
+                        position: absolute;
+                        top: -50px;
+                        transform: rotate(35deg);
+                        transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+                        width: 50px;
+                        z-index: -10;
+                    }
                     &:first-child{
                         border-top: 2px solid $accent1;
                     }
                     &:last-child{
                         border-bottom: 2px solid $accent1;
                     }
+                    &:hover a{
+                        transform: translate(3px);
+                    }
                     &:hover{
                         cursor: pointer;
+                        background-color: #5d99ee29;
+                        &:after {
+                            left: 120%;
+                           
+                        }
                     }
-
                 }
             }
         }
 
     }
+    @media screen and (min-width : 750px){
+        .landingTitle{
+            width: 627px;
+            margin: 0 auto;
+            h1{
+                font-size: 84px;
+            }
+            h2{
+                text-align: left;
+                padding-left: 5px;
+            }
+        }
+
+    }
 }
+
