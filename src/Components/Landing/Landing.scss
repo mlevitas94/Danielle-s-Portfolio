@@ -1,0 +1,63 @@
+@import '../../Variables.scss';
+.landingCont{
+    font-family: $fontStyle1;
+    height: 100vh;
+    h1{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: 10vh;
+        font-weight: bolder;
+        font-size: 3rem;
+        color: $accent2;
+        text-shadow: 4px 6px 10px black;
+        
+    }
+    .verticle{
+        background-image: url('../../assets/landing_image.JPG');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .verticleFlex{
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+    
+            .v-line{
+                border-left: 2px solid $accent1;
+                height: 100%;
+            }
+            .linkBox{
+                width: 200px;
+                backdrop-filter: blur(5px);
+               
+                .linkCont{
+                    border-left: 2px solid $accent1;
+                    border-right: 2px solid $accent1;
+                    padding: 20px;
+                    text-align: center;
+                    margin-bottom: -2px;
+                    font-size: $size1;
+                    &:first-child{
+                        border-top: 2px solid $accent1;
+                    }
+                    &:last-child{
+                        border-bottom: 2px solid $accent1;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+
+                }
+            }
+        }
+
+    }
+}
