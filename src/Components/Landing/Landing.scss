@@ -2,10 +2,6 @@
 .landingCont{
     font-family: $fontStyle1;
     height: 100vh;
-    background-image: url('../../assets/landing_image.JPG');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     position: relative;
     .landingTitle{
         width: 100%;
@@ -111,14 +107,9 @@
     }
     @media screen and (min-width : 750px){
         .landingTitle{
-            width: 627px;
             margin: 0 auto;
             h1{
                 font-size: 84px;
-            }
-            h2{
-                text-align: left;
-                padding-left: 5px;
             }
         }
 

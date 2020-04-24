@@ -6,6 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.App{
+	position: relative;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -34,6 +37,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-image: url('./assets/landing_image.JPG');
+	background-repeat: no-repeat;
+    background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 }
 ol, ul {
 	list-style: none;
@@ -50,3 +58,33 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* styles for transitions  */
+
+.page{
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.fade-enter {
+	opacity: 0;
+	transform: translateX(-100%);
+  }
+  .fade-enter-active {
+	opacity: 1;
+	transform: translateX(0%);
+  }
+  .fade-exit {
+	opacity: 1;
+	transform: translateX(0%);
+  }
+  .fade-exit-active{
+	opacity: 0;
+	transform: translateX(100%);
+  }
+  .fade-enter-active ,
+  .fade-exit-active {
+	transition: opacity 500ms, transform 500ms;
+  }
+  
