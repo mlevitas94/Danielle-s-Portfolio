@@ -1,12 +1,76 @@
+@import '../../Variables.scss';
 .aboutCont{
+    display: inline-flex;
+    align-items: center;
     .middleCard{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    
+       
         .imgSide{
+            display: block;
+            padding: 20px;
+            background-color: white;
+            h1{
+                font-family: $fontStyle2;
+                font-weight: bolder;
+                font-size: $size3;
+                padding-bottom: 10px;
+            }
             img{
-                width: 500px;
+                width: 100%;
+                display: block;
+                box-shadow: 0px 0px 16px 0px grey;
             }
         }
         .contentSide{
-
+            background-color: #fdd3f654;
+            z-index: 100;
+            opacity: 1;
+            position: relative;
+            height: 100%;
+            .content{
+                font-family: $fontStyle1;
+                line-height: 1.3rem;
+                padding: 20px;
+                font-weight: 600;
+                text-shadow: 0px 0px 15px white;
+                position: relative;
+                overflow: hidden;
+                background-color: #fdd3f65e;
+                height: 100%;
+            }
+            &:before{
+                content: "";
+                background: url('../../assets//landing_image.JPG'); 
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                top: 0px; 
+                bottom: 0px;
+                filter: blur(5px);
+                z-index: -1;
+            }
+        }
+    }
+    @media screen and (min-width: $breakSmall){
+        .middleCard{
+            width: 80%;
+            margin: 44px auto 44px auto;
+            .imgSide{
+                border-top-right-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+        }
+        .contentSide{
+            .content{
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
         }
     }
 }
