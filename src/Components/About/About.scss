@@ -1,16 +1,14 @@
 @import '../../Variables.scss';
 .aboutCont{
-    display: inline-flex;
+    display: flex;
     align-items: center;
     .middleCard{
         display: flex;
         flex-direction: column;
         height: 100vh;
-    
-       
         .imgSide{
             display: block;
-            padding: 20px;
+            padding: 44px;
             background-color: white;
             h1{
                 font-family: $fontStyle2;
@@ -22,6 +20,7 @@
                 width: 100%;
                 display: block;
                 box-shadow: 0px 0px 16px 0px grey;
+                border-radius: 5px;
             }
         }
         .contentSide{
@@ -33,7 +32,7 @@
             .content{
                 font-family: $fontStyle1;
                 line-height: 1.3rem;
-                padding: 20px;
+                padding: 44px;
                 font-weight: 600;
                 text-shadow: 0px 0px 15px white;
                 position: relative;
@@ -67,9 +66,37 @@
             }
         }
         .contentSide{
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
             .content{
                 border-bottom-left-radius: 5px;
                 border-bottom-right-radius: 5px;
+            }
+        }
+    }
+    @media screen and (min-width:$breakLarge){
+        height: 100vh;
+        .middleCard{
+            margin: 0 auto;
+            flex-direction: row;
+            position: relative;
+            max-height: 358px;
+            .imgSide{
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 22px;
+                
+            }
+            .contentSide{
+                border-radius: 5px;
+                .content{
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    padding: 22px;
+                }
             }
         }
     }
