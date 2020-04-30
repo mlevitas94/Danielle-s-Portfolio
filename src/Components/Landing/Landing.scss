@@ -3,6 +3,11 @@
     font-family: $fontStyle1;
     height: 100vh;
     position: relative;
+    background-image: url('../../assets/landing_image.jpeg');
+	background-repeat: no-repeat;
+    background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
     .landingTitle{
         width: 100%;
         text-align: center;
@@ -103,7 +108,7 @@
                 }
                 &:before{
                     content: "";
-                    background: url('../../assets//landing_image.JPG'); 
+                    background: url('../../assets//landing_image.jpeg'); 
                     background-attachment: fixed;
                     background-size: cover;
                     background-position: center;

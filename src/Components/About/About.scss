@@ -2,13 +2,18 @@
 .aboutCont{
     display: flex;
     align-items: center;
+    background-image: url('../../assets/DSC_0175.jpg');
+	background-repeat: no-repeat;
+    background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
     .middleCard{
         display: flex;
         flex-direction: column;
         height: 100vh;
         .imgSide{
             display: block;
-            padding: 44px;
+            padding: 33px;
             background-color: white;
             h1{
                 font-family: $fontStyle2;
@@ -32,7 +37,7 @@
             .content{
                 font-family: $fontStyle1;
                 line-height: 1.3rem;
-                padding: 44px;
+                padding: 33px;
                 font-weight: 600;
                 text-shadow: 0px 0px 15px white;
                 position: relative;
@@ -42,7 +47,7 @@
             }
             &:before{
                 content: "";
-                background: url('../../assets//landing_image.JPG'); 
+                background: url('../../assets/DSC_0175.jpg'); 
                 background-attachment: fixed;
                 background-size: cover;
                 background-position: center;
@@ -80,9 +85,10 @@
             margin: 0 auto;
             flex-direction: row;
             position: relative;
-            max-height: 358px;
+            height: auto;
             .imgSide{
-                border-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-top-right-radius: 0px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -90,14 +96,22 @@
                 
             }
             .contentSide{
-                border-radius: 5px;
+                height: inherit;
+                border-top-right-radius: 5px;
+                border-bottom-left-radius: 0px;
                 .content{
-                    border-radius: 5px;
+                    border-top-right-radius: 5px;
+                    border-bottom-left-radius: 0px;
                     display: flex;
                     align-items: center;
                     padding: 22px;
                 }
             }
+        }
+    }
+    @media screen and (min-width: $breakXLarge){
+        .middleCard{
+            width: 1000px;
         }
     }
 }

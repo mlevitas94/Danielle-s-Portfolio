@@ -40,11 +40,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-image: url('./assets/landing_image.JPG');
-	background-repeat: no-repeat;
-    background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
 }
 ol, ul {
 	list-style: none;
@@ -60,6 +55,10 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+#preload{
+	display: none;
 }
 
 /* styles for transitions  */
@@ -84,6 +83,6 @@ table {
 }
 .fade-enter-active ,
 .fade-exit-active {
-	transition: opacity 500ms;
+	transition: opacity 500ms linear;
 }
   
