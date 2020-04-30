@@ -12,6 +12,7 @@ function App() {
   const [images, setImages] = useState(null)
 
   useEffect(() => {
+    document.querySelector('.lds-ring').classList.add('lds-ring-transition')
     const imageAmount = document.querySelectorAll('#preload img').length
     setImages(imageAmount)
   },[])
@@ -36,7 +37,7 @@ function App() {
             </TransitionGroup>
           )} />
           :
-          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+          <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
       }
     </div>
   );
