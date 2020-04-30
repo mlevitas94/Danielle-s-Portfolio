@@ -1,13 +1,13 @@
 @import '../../Variables.scss';
 .aboutCont{
     display: flex;
-    align-items: center;
     background-image: url('../../assets/DSC_0175.jpg');
 	background-repeat: no-repeat;
     background-size: cover;
 	background-position: center;
     background-attachment: fixed;
-    // overflow: scroll;
+    height: 100vh;
+    overflow: scroll;
     .middleCard{
         display: flex;
         flex-direction: column;
@@ -64,13 +64,14 @@
     @media screen and (min-width: $breakSmall){
         .middleCard{
             width: 80%;
-            margin: 44px auto 44px auto;
+            margin: 44px auto 0 auto;
             .imgSide{
                 border-top-right-radius: 5px;
                 border-top-left-radius: 5px;
             }
         }
         .contentSide{
+            margin-bottom: 44px;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             .content{
@@ -81,6 +82,7 @@
     }
     @media screen and (min-width:$breakLarge){
         height: 100vh;
+        align-items: center;
         .middleCard{
             margin: 0 auto;
             flex-direction: row;
@@ -96,6 +98,7 @@
                 
             }
             .contentSide{
+                margin-bottom: unset;
                 height: inherit;
                 border-top-right-radius: 5px;
                 border-bottom-left-radius: 0px;
