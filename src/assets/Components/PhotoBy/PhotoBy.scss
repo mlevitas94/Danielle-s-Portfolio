@@ -1,0 +1,9 @@
+@import '../../../Variables.scss';
+
+.photoBy{
+    position: absolute;
+    z-index : 100;
+    font-family: $fontStyle2;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}

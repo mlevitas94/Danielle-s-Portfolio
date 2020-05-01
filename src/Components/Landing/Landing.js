@@ -1,6 +1,7 @@
 import React from 'react'
 import './Landing.scss'
 import { Link } from 'react-router-dom'
+import PhotoBy from '../../assets/Components/PhotoBy/PhotoBy'
 
 const Landing = () => {
     return (
@@ -22,8 +23,8 @@ const Landing = () => {
                         <div className='v-line'></div>
                     </div>
                 </div>
-
             </div>
+            <PhotoBy/>
         </div>
     )
 }
