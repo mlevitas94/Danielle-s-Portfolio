@@ -38,6 +38,8 @@
                 position: relative;
                 margin: 11px 22px;
                 text-align: right;
+                bottom: unset;
+                right: unset;
             }
             .content{
                 position: relative;
@@ -81,9 +83,11 @@
                     bottom: -11px;
                     text-align: right;
                     background: unset;
-                    &::before{
-                        background: unset;
-                    }
+                    right: unset;
+                    margin: unset;
+                    // &::before{
+                    //     background: unset;
+                    // }
                     
                 }
             }

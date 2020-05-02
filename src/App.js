@@ -9,7 +9,7 @@ import LandingBackground from './assets/landing_image.jpeg'
 
 
 function App() {
-  const [images, setImages] = useState(null)
+  const [images, setImages] = useState(false)
 
   useEffect(() => {
     document.querySelector('.lds-ring').classList.add('lds-ring-transition')
@@ -19,13 +19,13 @@ function App() {
   console.log(images)
   return (
     <div className="App">
-      <div id='preload'>
-        <img src={LandingBackground} alt='preload' onLoad={() => {setImages(prev => prev - 1)}}/>
-        <img src={AboutBackground} alt='preload' onLoad={() => {setImages(prev => prev - 1)}}/>
-        <img src={AboutPortrait} alt='preload' onLoad={() => {setImages(prev => prev - 1)}}/>
+      <div id='preload' onLoad={() => {setImages(true)}}>
+        <img src={LandingBackground} alt='preload'/>
+        <img src={AboutBackground} alt='preload'/>
+        <img src={AboutPortrait} alt='preload'/>
       </div>
       {
-        images === 0 ?
+        images === true ?
           <Route render={({ location }) => (
             <TransitionGroup>
               <CSSTransition timeout={600} classNames='fade' key={location.key}>
