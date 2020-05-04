@@ -4,6 +4,7 @@
     font-family: $fontStyle1;
     height: 100vh;
     position: relative;
+    line-height: 1.3rem;
     .split{
         height: 100%;
         display: flex;
@@ -12,6 +13,10 @@
             width: 50%;
             .content{
                 padding: 44px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
                 h1{
                     margin-bottom: 44px;
                     font-size: $size4;
@@ -28,8 +33,30 @@
                     }
                 }
                 form{
+                    input{
+                        padding: 5px;
+                        font-size: 1rem;
+                    }
                     label{
                         display: block;
+                        margin-bottom: 3px;
+                    }
+                    textarea{
+                        width: 100%;
+                        resize: vertical;
+                        padding: 5px;
+                        font-size: 1rem;
+                    }
+                    .topForm{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 22px;
+                        div{
+                            width: 45%;
+                            input{
+                                width: 100%;
+                            }
+                        }
                     }
                 }
             }

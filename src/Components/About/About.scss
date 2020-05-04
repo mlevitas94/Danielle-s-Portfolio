@@ -12,6 +12,7 @@
     .middleCard{
         display: flex;
         flex-direction: column;
+        max-width: 1288px;
         .imgSide{
             display: block;
             padding: 33px;
@@ -22,11 +23,13 @@
                 font-size: $size3;
                 padding-bottom: 10px;
             }
-            img{
+            .image{
+                background-image: url('./assets/portrait.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                min-height: 200px;
                 width: 100%;
-                display: block;
-                box-shadow: 0px 0px 16px 0px grey;
-                border-radius: 5px;
             }
         }
         .contentSide{
@@ -76,6 +79,10 @@
             .imgSide{
                 border-top-right-radius: 5px;
                 border-top-left-radius: 5px;
+                .image{
+                    min-height: 400px;
+
+                }
             }
             .contentSide{
                 .photoBy{
@@ -117,6 +124,10 @@
                 flex-direction: column;
                 justify-content: center;
                 padding: 22px;
+                .image{
+                    min-width: 400px;
+
+                }
                 
             }
             .contentSide{
@@ -137,7 +148,12 @@
     }
     @media screen and (min-width: $breakXLarge){
         .middleCard{
-            width: 1000px;
+            .imgSide{
+                .image{
+                    min-width: 600px;
+
+                }
+            }
         }
     }
 }
