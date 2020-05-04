@@ -9,8 +9,9 @@
         height: 100%;
         display: flex;
         .contentSide{
-            background-color: red;
             width: 50%;
+            // background-color: $accent1;
+            // color: red;
             .content{
                 padding: 44px;
                 display: flex;
@@ -30,22 +31,51 @@
                     margin-bottom: 44px;
                     li{
                         margin: 11px 0;
+                        span{
+                            color: $accent1;
+                        }
                     }
                 }
                 form{
-                    input{
-                        padding: 5px;
-                        font-size: 1rem;
-                    }
-                    label{
-                        display: block;
-                        margin-bottom: 3px;
-                    }
-                    textarea{
-                        width: 100%;
-                        resize: vertical;
-                        padding: 5px;
-                        font-size: 1rem;
+                    .inputCont{
+                        position: relative;
+                        label{
+                            position: absolute;
+                            left: 5px;
+                            bottom: 5px;
+                            color: #6f6f6f;
+                            transition: transform 0.2s linear, color 0.2s linear;
+                        }
+                        input{
+                            padding: 5px;
+                            font-size: 1rem;
+                            border-top: none;
+                            border-right: none;
+                            border-left: none;
+                            border-bottom: 1px solid $accent1;
+                           
+                            &:focus{
+                                outline: none;
+                                label{
+                                    color: red;
+                                }
+                            }
+                        }
+                        textarea{
+                            width: 100%;
+                            resize: vertical;
+                            padding: 5px;
+                            font-size: 1rem;
+                            border: 1px solid $accent1;
+                            &:focus{
+                                outline: none;
+                            }
+                        }
+                        .inputFocused{
+                            transform: translate(0px, -24px) scale(0.9);
+                            color: black;
+                        }
+
                     }
                     .topForm{
                         display: flex;
