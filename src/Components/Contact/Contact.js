@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Contact.scss'
+import {FontAwesomeIcon}from '@fortawesome/react-fontawesome'
+import {faTwitter, faLinkedin, faInstagram} from '@fortawesome/free-brands-svg-icons'
 
 const Contact = () => {
     const [inputs, setInputs] = useState({
@@ -11,15 +13,20 @@ const Contact = () => {
         <div className='page'>
             <div className='contactCont'>
                 <div className='content'>
-                    <h1>Contact Me</h1>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis eget nunc lobortis mattis. Enim nunc faucibus a pellentesque sit amet porttitor eget. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Egestas tellus rutrum tellus pellentesque eu tincidunt.</p>
-                    <ul>
-                        <li><span>Email</span> : Email@mail.com</li>
-                        <li><span>Linkedin</span> : www.linkedin.com/myprofile</li>
-                        <li><span>Instagram</span> : www.instagram.com/myprofile</li>
-                        <li><span>Twitter</span> : www.twitter.com/myprofile</li>
-                    </ul>
+                    <div className='top'>
+                        <h1>Contact Me</h1>
+                        <div className='infoSplit'>
+                            <p className='info'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis eget nunc lobortis mattis. Enim nunc faucibus a pellentesque sit amet porttitor eget. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Egestas tellus rutrum tellus pellentesque eu tincidunt.</p>
+                            <div>
+                                <p className='email'><span>Email : </span> mail@mail.com</p>
+                                <ul>
+                                    <li><FontAwesomeIcon icon={faTwitter}/></li>
+                                    <li><FontAwesomeIcon icon={faLinkedin}/></li>
+                                    <li><FontAwesomeIcon icon={faInstagram}/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <form>
                         <div className='topForm'>
                             <div className='inputCont name'>
@@ -60,6 +67,7 @@ const Contact = () => {
                             ></textarea>
 
                         </div>
+                        <button onClick={(e) => {e.preventDefault()}}>Submit</button>
                     </form>
 
                 </div>

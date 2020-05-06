@@ -6,8 +6,53 @@
     position: relative;
     line-height: 1.3rem;
     overflow: auto;
+    background-image: url('../../assets/cool-background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
     .content{
+        padding: 15vh 22px 44px 22px;
+        background-color: white;
+        .top{
+            h1{
+                margin: 0 0 44px 0;
+                font-weight: bolder;
+                font-size: $size4;
+            }
+            p{
+                margin-bottom: 44px;
+                span{
+                    color: $accent1;
+                }
+            }
+            ul{
+                display: flex;
+                margin-bottom: 44px;
+                li{
+                    margin-right: 22px;
+                    font-size: $size3;
+                    color: $accent1;
+                }
+            }
+            .email{
+                margin-bottom: 22px;
+            }
+
+        }
         form{
+            button{
+                display: block;
+                margin: 22px auto 0  auto;
+                background: $accent1;
+                border: none;
+                font-size: $size1;
+                padding: 5px 15px;
+                border-radius: 20px;
+                color: white;
+                &:hover{
+                    cursor: pointer;
+                }
+
+            }
             .inputCont{
                 position: relative;
                 label{
@@ -75,5 +120,51 @@
         }
     }
     
+    @media screen and (min-width : $breakSmall){
+        .content{
+            .top{
+                h1{
+                    text-align: center;
+                    margin-bottom: 66px;
+                }
+                .infoSplit{
+                    display: flex;
+                    justify-content: space-between;
+                    .info{
+                        width: 60%;
+                    }
+                }
+
+            }
+            form{
+                .topForm{
+                    flex-direction: row;
+                    .inputCont{
+                        width: 45%;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width : $breakMedium){
+        display: flex;
+        align-items: center;
+        .content{
+            width: 80%;
+            margin: 0 auto;
+            padding: 44px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 2px #00000069;
+            .top{
+       
+                .infoSplit{
+                    justify-content: space-around;
+
+                }
+
+            }
+        }
+    }
     
 }
