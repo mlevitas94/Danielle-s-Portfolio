@@ -111,12 +111,12 @@
     }
     @media screen and (min-width:$breakLarge){
         height: 100vh;
-        align-items: center;
+        align-items: safe center;
         .middleCard{
-            margin: 0 auto;
+            margin: auto;
             flex-direction: row;
             position: relative;
-            height: auto;
+            min-height: min-content;
             .imgSide{
                 border-bottom-left-radius: 5px;
                 border-top-right-radius: 0px;

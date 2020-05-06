@@ -6,9 +6,6 @@
     position: relative;
     line-height: 1.3rem;
     overflow: auto;
-    background-image: url('../../assets/cool-background.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
     .content{
         padding: 15vh 22px 44px 22px;
         background-color: white;
@@ -149,13 +146,19 @@
     }
     @media screen and (min-width : $breakMedium){
         display: flex;
-        align-items: center;
+        align-items: safe center;
+        background-image: url('../../assets/cool-background.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
         .content{
             width: 80%;
-            margin: 0 auto;
+            margin: auto;
             padding: 44px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px 2px #00000069;
+            position: relative;
+            min-height: min-content;
             .top{
        
                 .infoSplit{
@@ -164,6 +167,11 @@
                 }
 
             }
+        }
+    }
+    @media screen and (min-width: $breakXLarge){
+        .content{
+            width: 1000px;
         }
     }
     
