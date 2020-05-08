@@ -18,7 +18,7 @@ const Contact = () => {
                         <div className='infoSplit'>
                             <p className='info'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis eget nunc lobortis mattis. Enim nunc faucibus a pellentesque sit amet porttitor eget. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Egestas tellus rutrum tellus pellentesque eu tincidunt.</p>
                             <div>
-                                <p className='email'><span>Email : </span> mail@mail.com</p>
+                                <p className='email'> mail@mail.com</p>
                                 <ul>
                                     <li><FontAwesomeIcon icon={faTwitter}/></li>
                                     <li><FontAwesomeIcon icon={faLinkedin}/></li>

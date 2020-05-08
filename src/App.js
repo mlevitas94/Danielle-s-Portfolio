@@ -7,7 +7,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import AboutBackground from './assets/DSC_0175.jpg'
 import AboutPortrait from './Components/About/assets/portrait.jpg'
 import LandingBackground from './assets/landing_image.jpeg'
-import ContactBackground from './assets/DSC_1356.jpeg'
+import ContactBackground from './assets/tree.jpg'
 
 
 function App() {

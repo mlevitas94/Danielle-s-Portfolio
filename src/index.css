@@ -115,6 +115,7 @@ table {
 	position: absolute;
 	left: 0;
 	right: 0;
+	will-change: opacity;
 }
 
 .fade-enter {

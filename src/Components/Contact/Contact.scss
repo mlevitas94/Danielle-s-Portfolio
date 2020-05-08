@@ -4,11 +4,10 @@
     font-family: $fontStyle1;
     height: 100vh;
     position: relative;
-    line-height: 1.3rem;
+    line-height: 1.5rem;
     overflow: auto;
     .content{
         padding: 15vh 22px 44px 22px;
-        background-color: white;
         .top{
             h1{
                 margin: 0 0 44px 0;
@@ -17,6 +16,7 @@
             }
             p{
                 margin-bottom: 44px;
+                font-size: $size1;
                 span{
                     color: $accent1;
                 }
@@ -41,7 +41,7 @@
                 margin: 22px auto 0  auto;
                 background: $accent1;
                 border: none;
-                font-size: $size1;
+                font-size: $size2;
                 padding: 5px 15px;
                 border-radius: 20px;
                 color: white;
@@ -147,10 +147,12 @@
     @media screen and (min-width : $breakMedium){
         display: flex;
         align-items: safe center;
-        background-image: url('../../assets/cool-background.svg');
+        background-image: url('../../assets/tree.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: top;
+        background-position: center;
+        position: relative;
+        z-index: 0;
         .content{
             width: 80%;
             margin: auto;
@@ -159,6 +161,21 @@
             box-shadow: 0px 0px 20px 2px #00000069;
             position: relative;
             min-height: min-content;
+            background-color: #ffffffeb;
+            &:before{
+                content: "";
+                background: url('../../assets/tree.jpg'); 
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                top: 0px; 
+                bottom: 0px;
+                filter: blur(5px);
+                z-index: -1;
+            }
             .top{
        
                 .infoSplit{
