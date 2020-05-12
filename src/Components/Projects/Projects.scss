@@ -1,0 +1,10 @@
+.projectsCont{
+    background-image: url('../../assets/park.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    filter: blur(5px); 
+    transform: scale(1.1);
+    overflow: hidden;
+}

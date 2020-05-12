@@ -3,11 +3,14 @@ import { Switch, Route } from "react-router-dom";
 import Landing from './Components/Landing/Landing'
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
+import Projects from './Components/Projects/Projects';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import AboutBackground from './assets/DSC_0175.jpg'
 import AboutPortrait from './Components/About/assets/portrait.jpg'
 import LandingBackground from './assets/landing_image.jpeg'
 import ContactBackground from './assets/tree.jpg'
+import ProjectsBackground from './assets/park.jpg'
+
 
 
 function App() {
@@ -25,6 +28,7 @@ function App() {
         <img src={AboutBackground} alt='preload'/>
         <img src={AboutPortrait} alt='preload'/>
         <img src={ContactBackground} alt='preload'/>
+        <img src={ProjectsBackground} alt='preload'/>
 
       </div>
       {
@@ -36,6 +40,7 @@ function App() {
                   <Route exact path='/' component={Landing} />
                   <Route exact path='/about' component={About} />
                   <Route exact path='/contact' component={Contact} />
+                  <Route exact path='/projects' component={Projects}/>
                 </Switch>
               </CSSTransition>
             </TransitionGroup>

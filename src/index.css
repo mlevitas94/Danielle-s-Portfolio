@@ -115,6 +115,7 @@ table {
 	position: absolute;
 	left: 0;
 	right: 0;
+	overflow: hidden;
 	will-change: opacity;
 }
 

@@ -58,6 +58,7 @@
                     bottom: 5px;
                     color: #6f6f6f;
                     transition: transform 0.2s linear, color 0.2s linear;
+                    z-index: 0;
                 }
                 input{
                     padding: 5px;
@@ -67,6 +68,8 @@
                     border-left: none;
                     border-bottom: 1px solid $accent1;
                     background: transparent;
+                    position: relative;
+                    z-index: 1;
                     
                     &:focus{
                         outline: none;
@@ -83,6 +86,8 @@
                     border: 1px solid $accent1;
                     margin-top: 44px;
                     background: transparent;
+                    position: relative;
+                    z-index: 1;
                     &:focus{
                         outline: none;
                     }

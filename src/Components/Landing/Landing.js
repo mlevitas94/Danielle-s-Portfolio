@@ -17,7 +17,7 @@ const Landing = () => {
                         <div className='v-line'></div>
                         <div className='linkBox'>
                             <div className='linkCont'><Link to='/about'>About</Link></div>
-                            <div className='linkCont'><Link>Projects</Link></div>
+                            <div className='linkCont'><Link to='/projects'>Projects</Link></div>
                             <div className='linkCont'><Link to='/contact'>Contact</Link></div>
                         </div>
                         <div className='v-line'></div>
