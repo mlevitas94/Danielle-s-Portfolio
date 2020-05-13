@@ -1,10 +1,44 @@
+@import '../../Variables.scss';
+
 .projectsCont{
-    background-image: url('../../assets/park.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     height: 100vh;
-    filter: blur(5px); 
-    transform: scale(1.1);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    font-family: $fontStyle1;
+    &:before{
+        content: "";
+        background: url('../../assets/park.jpg'); 
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px; 
+        bottom: 0px;
+        filter: blur(5px);
+        transform: scale(1.1);
+        z-index: -1;
+    }
+    .middleCard{
+        width: 90%;
+        background-color: #ffffffe3;
+        margin: 0 auto;
+        min-height: 90vh;
+        padding: 22px;
+        border-radius: 5px;
+        h1{
+            text-align: center;
+            margin-bottom: 22px;
+            font-size: $size4;
+
+        }
+        select{
+            border: none;
+            display: block;
+            margin: 0 auto;
+            background-color: $accent1;
+            padding: 2px 10px;
+        }
+    }
 }
