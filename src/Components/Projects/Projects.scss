@@ -6,6 +6,9 @@
     display: flex;
     align-items: center;
     font-family: $fontStyle1;
+    overflow: auto;
+    display: flex;
+    align-items: safe center;
     &:before{
         content: "";
         background: url('../../assets/park.jpg'); 
@@ -27,18 +30,38 @@
         min-height: 90vh;
         padding: 22px;
         border-radius: 5px;
+        margin: auto;
         h1{
             text-align: center;
             margin-bottom: 22px;
             font-size: $size4;
+            font-family: $fontStyle2;
 
         }
-        select{
-            border: none;
-            display: block;
-            margin: 0 auto;
-            background-color: $accent1;
-            padding: 2px 10px;
+        .catFlex{
+            display: flex;
+            justify-content: center;
+            .catCont{
+                position: relative;
+                display: inline-block;
+                margin: 0 auto;
+                svg{
+                    position: absolute;
+                    right: 5px;
+                }
+                select{
+                    border: none;
+                    border-bottom: 1px solid grey;
+                    background: transparent;
+                    padding: 2px 15px 2px 0px;
+                    border-radius: 0px;
+                    text-align: left;
+                    font-size: 1rem;
+                    font-family: $fontStyle1;
+                }
+    
+            }
+
         }
     }
 }

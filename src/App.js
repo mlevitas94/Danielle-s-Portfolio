@@ -15,6 +15,7 @@ import ProjectsBackground from './assets/park.jpg'
 
 function App() {
   const [images, setImages] = useState(false)
+  const [projects, setProjects] = useState([1,1,1,1,1])
 
   useEffect(() => {
     document.querySelector('.lds-ring').classList.add('lds-ring-transition')
@@ -40,7 +41,7 @@ function App() {
                   <Route exact path='/' component={Landing} />
                   <Route exact path='/about' component={About} />
                   <Route exact path='/contact' component={Contact} />
-                  <Route exact path='/projects' component={Projects}/>
+                  <Route exact path='/projects' component={() => <Projects projects={projects} setProjects={setProjects}/>}/>
                 </Switch>
               </CSSTransition>
             </TransitionGroup>
