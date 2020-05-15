@@ -15,7 +15,7 @@ import ProjectsBackground from './assets/park.jpg'
 
 function App() {
   const [images, setImages] = useState(false)
-  const [projects, setProjects] = useState([1,1,1,1,1])
+  const [projects, setProjects] = useState([1,1,1,1,1,1,1,1,1,1,1])
 
   useEffect(() => {
     document.querySelector('.lds-ring').classList.add('lds-ring-transition')

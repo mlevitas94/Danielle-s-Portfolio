@@ -47,21 +47,59 @@
                 margin: 0 auto;
                 svg{
                     position: absolute;
-                    right: 5px;
+                    right: 0px;
                 }
                 select{
                     border: none;
                     border-bottom: 1px solid grey;
                     background: transparent;
-                    padding: 2px 15px 2px 0px;
+                    padding: 2px 15px 2px 5px;
                     border-radius: 0px;
                     text-align: left;
                     font-size: 1rem;
                     font-family: $fontStyle1;
+                    -webkit-appearance: none;
+                    outline: none;
                 }
     
             }
 
+        }
+        .projectsList{
+            .project{
+                border-bottom: 1px solid grey;
+                padding-bottom: 22px;
+                margin: 22px 0;
+                .top{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 22px;
+                    span{
+                        font-size: 72px;
+                        font-weight: 100;
+                    }
+                    h3{
+                        width: 65%;
+                        font-size: $size1;
+                        font-family: $fontStyle2;
+                        font-weight: 700;
+                    }
+                }
+                .bottom{
+                    p{
+                        overflow: hidden;
+                        position: relative;
+                        line-height: 1.2em;
+                        height: 7.2em; /* exactly three lines */
+                    }
+                    .imgCont{
+                        background-color: grey;
+                        height: 200px;
+                        margin-bottom: 22px;
+                    }
+                }
+            }
         }
     }
 }
