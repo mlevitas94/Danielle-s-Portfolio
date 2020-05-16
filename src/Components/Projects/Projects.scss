@@ -84,6 +84,7 @@
                         font-size: $size1;
                         font-family: $fontStyle2;
                         font-weight: 700;
+                        text-align: right;
                     }
                 }
                 .bottom{
@@ -91,12 +92,36 @@
                         overflow: hidden;
                         position: relative;
                         line-height: 1.2em;
-                        height: 7.2em; /* exactly three lines */
+                        max-height: 7.2em;
+                        background-color: white;
+                        padding: 1.2em;
+                        &:after{
+                            content: "";
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 3.6em;
+                            background: rgb(255,255,255);
+                            background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+
+                        }
                     }
                     .imgCont{
                         background-color: grey;
                         height: 200px;
-                        margin-bottom: 22px;
+                        border-top-right-radius: 5px;
+                        border-top-left-radius: 5px;
+                    }
+                    .moreButton{
+                        background-color: white;
+                        border-radius: 5px;
+                        a{
+                            text-align: center;
+                            display: block;
+                            padding: 1.2em 0;
+                        }
                     }
                 }
             }
