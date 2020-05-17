@@ -108,12 +108,14 @@
 
                         }
                     }
-                    .imgCont{
-                        background-color: grey;
-                        height: 200px;
+
+                    img{
+                        width: 100%;
                         border-top-right-radius: 5px;
                         border-top-left-radius: 5px;
+                        display: block;
                     }
+                    
                     .moreButton{
                         background-color: white;
                         border-radius: 5px;
@@ -126,5 +128,8 @@
                 }
             }
         }
+    }
+    @media screen and (min-width : $breakSmall){
+        
     }
 }
