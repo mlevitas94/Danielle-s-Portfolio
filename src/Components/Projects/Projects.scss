@@ -26,7 +26,6 @@
     .middleCard{
         width: 90%;
         background-color: #ffffffe3;
-        margin: 0 auto;
         min-height: 90vh;
         padding: 22px;
         border-radius: 5px;
@@ -80,7 +79,6 @@
                         font-weight: 100;
                     }
                     h3{
-                        width: 65%;
                         font-size: $size1;
                         font-family: $fontStyle2;
                         font-weight: 700;
@@ -130,6 +128,44 @@
         }
     }
     @media screen and (min-width : $breakSmall){
-        
+        .middleCard{
+            .projectsList{
+                .project{
+                    .top{
+                        h3{
+                            width: 60%;
+                            text-align: center;
+                        }
+                    }
+                    .bottom{
+                        clear: both;
+                        overflow: auto;
+                        img{
+                            clear: both;
+                            width: 60%;
+                            float: right;
+                            margin: 0 0 15px 22px;
+                        }
+                        p{
+                            background: unset;
+                            max-height: unset;
+                            overflow: unset;
+                            padding: 0px;
+                            &:after{
+                                display: none;
+                            }
+                        }
+                        .moreButton{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width: $breakLarge){
+        .middleCard{
+            width: 886px;
+        }
     }
 }
