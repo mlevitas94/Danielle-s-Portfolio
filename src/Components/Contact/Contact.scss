@@ -3,23 +3,22 @@
 .contactCont{
     font-family: $fontStyle1;
     height: 100vh;
-    position: relative;
     line-height: 1.5rem;
     overflow: auto;
     z-index: 1;
     &:before{
         content: "";
         background: url('../../assets/tree.jpg'); 
-        background-attachment: fixed;
         background-size: cover;
         background-position: center;
-        position: fixed;
+        position: absolute;
         left: 0px;
         right: 0px;
         top: 0px; 
         bottom: 0px;
         filter: blur(5px);
         z-index: -1;
+        transform: scale(1.1);
     }
     .content{
         padding: 15vh 22px 44px 22px;
