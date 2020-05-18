@@ -16,9 +16,9 @@ const Contact = () => {
                     <div className='top'>
                         <h1>Contact Me</h1>
                         <div className='infoSplit'>
-                            <p className='info'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis eget nunc lobortis mattis. Enim nunc faucibus a pellentesque sit amet porttitor eget. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Egestas tellus rutrum tellus pellentesque eu tincidunt.</p>
-                            <div>
-                                <p className='email'> mail@mail.com</p>
+                            <p className='info'>Well, hopefully by the time you make it to this page, you already perused my bodies of work and are so impressed that you want to contact me to either talk about writing, work together on a project, or even offer me a job (the dream!). By contacting me, you will get quality copywriting and editing work, a dedicated English language connoisseur, and a few awkward jokes. Drop me a message today!</p>
+                            <div className='links'>
+                                <p className='email'><a href='mailto:danielleelmers@gmail.com'>danielleelmers@gmail.com</a></p>
                                 <ul>
                                     <li><FontAwesomeIcon icon={faTwitter}/></li>
                                     <li><FontAwesomeIcon icon={faLinkedin}/></li>
