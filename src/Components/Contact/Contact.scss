@@ -45,7 +45,10 @@
                 li{
                     margin-right: 22px;
                     font-size: $size3;
-                    color: $accent1;
+                    a{
+                        color: $accent1;
+
+                    }
                 }
             }
             .email{

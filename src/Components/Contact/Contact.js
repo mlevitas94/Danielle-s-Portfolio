@@ -20,9 +20,9 @@ const Contact = () => {
                             <div className='links'>
                                 <p className='email'><a href='mailto:danielleelmers@gmail.com'>danielleelmers@gmail.com</a></p>
                                 <ul>
-                                    <li><FontAwesomeIcon icon={faTwitter}/></li>
-                                    <li><FontAwesomeIcon icon={faLinkedin}/></li>
-                                    <li><FontAwesomeIcon icon={faInstagram}/></li>
+                                    <li><a href='https://twitter.com/dani_elmers' target='_blank' rel="noopener noreferrer"><FontAwesomeIcon icon={faTwitter}/></a></li>
+                                    <li><a href='https://www.linkedin.com/in/danielle-elmers/' target='_blank' rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin}/></a></li>
+                                    <li><a href='https://www.instagram.com/call_me_dani_/' target='_blank' rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram}/></a></li>
                                 </ul>
                             </div>
                         </div>
