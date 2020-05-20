@@ -1,7 +1,7 @@
 import React from 'react'
 import './Projects.scss'
 import {FontAwesomeIcon}from '@fortawesome/react-fontawesome'
-import {faSortDown} from '@fortawesome/free-solid-svg-icons'
+import {faSortDown, faArrowCircleRight} from '@fortawesome/free-solid-svg-icons'
 import testImg from '../../assets/park.jpg'
 
 const Projects = (props) => {
@@ -9,7 +9,7 @@ const Projects = (props) => {
 
     const projectList = projects.map((project, i) => {
         return (
-            <div className='project'>
+            <div key={i} className='project'>
                 <div className='top'>
                     <span>{i + 1 < 10 ? '0' + (i+1) : i + 1}</span>
                     <h3>Lorem Ipsum</h3>
@@ -18,7 +18,7 @@ const Projects = (props) => {
                     <img src={testImg}/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare. Rhoncus mattis rhoncus urna neque viverra. Mauris ultrices eros in cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor. Id eu nisl nunc mi ipsum faucibus vitae. Cras ornare arcu dui vivamus arcu felis bibendum. Urna et pharetra pharetra massa massa ultricies mi. Ut placerat orci nulla pellentesque dignissim enim. Lacinia quis vel eros donec ac odio tempor orci.</p>                
                     <div className='moreButton'>
-                        <a>View More</a>
+                        <a>View More <span><FontAwesomeIcon icon={faArrowCircleRight}/></span></a>
                     </div>
                 </div>
             </div>

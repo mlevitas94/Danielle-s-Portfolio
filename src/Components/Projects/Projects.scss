@@ -143,6 +143,7 @@
                             width: 60%;
                             float: right;
                             margin: 0 0 15px 22px;
+                            border-radius: 0px;
                         }
                         p{
                             background: unset;
@@ -158,9 +159,19 @@
                             background: none;
                             float: left;
                             a{
-                                background-color: red;
-                                width: 200px;
+                                background-color: $accent1;
+                                border-radius: 27px;
+                                width: 150px;
                                 margin-top: 22px;
+                                color: white;
+                                position: relative;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 10px;
+                                span{
+                                    margin-left: 22px;
+                                }
                             }
                         }
                     }
