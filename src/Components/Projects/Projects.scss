@@ -115,12 +115,50 @@
                     .moreButton{
                         background-color: white;
                         border-radius: 5px;
-                        a{
+                        &:hover{
+                            cursor: pointer;
+                        }
+                        button{
                             text-align: center;
                             display: block;
                             padding: 1.2em 0;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                            span{
+                                display: none;
+                            }
                         }
                     }
+                }
+            }
+        }
+        .selectedProject{
+            button{
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $accent1;
+                border: none;
+                font-size: $size2;
+                border-bottom-right-radius: 5px;
+                color: white;
+                padding: 10px 5px;
+            }
+            img{
+                width: 100%;
+                margin-bottom: 22px;
+            }
+            p{
+                line-height: 1.2em;
+            }
+            .links{
+                margin-top: 22px;
+                a{
+                    display: block;
+                    margin-bottom: 11px;
+                    color: $accent1;
+                    text-decoration: underline;
                 }
             }
         }
@@ -155,10 +193,9 @@
                             }
                         }
                         .moreButton{
-                            // display: none;
                             background: none;
                             float: left;
-                            a{
+                            button{
                                 background-color: $accent1;
                                 border-radius: 27px;
                                 width: 150px;
@@ -169,8 +206,12 @@
                                 justify-content: center;
                                 align-items: center;
                                 padding: 10px;
+                                border: none;
+                                font-size: 16px;
+                                outline: none;
                                 span{
                                     margin-left: 22px;
+                                    display: block;
                                 }
                             }
                         }
