@@ -24,7 +24,6 @@
     .middleCard{
         width: 90%;
         background-color: #ffffffe3;
-        min-height: 90vh;
         padding: 22px;
         border-radius: 5px;
         margin: auto;
@@ -122,6 +121,10 @@
                             text-align: center;
                             display: block;
                             padding: 1.2em 0;
+                            background-color: transparent;
+                            border: none;
+                            width: 100%;
+                            outline: none;
                             &:hover{
                                 cursor: pointer;
                             }
@@ -144,10 +147,16 @@
                 border-bottom-right-radius: 5px;
                 color: white;
                 padding: 10px 5px;
+                &:hover{
+                    cursor: pointer;
+                }
             }
-            img{
-                width: 100%;
-                margin-bottom: 22px;
+            .imgCont{
+                margin-top: 44px;
+                img{
+                    width: 100%;
+                    margin-bottom: 22px;
+                }
             }
             p{
                 line-height: 1.2em;
@@ -206,15 +215,31 @@
                                 justify-content: center;
                                 align-items: center;
                                 padding: 10px;
-                                border: none;
                                 font-size: 16px;
-                                outline: none;
                                 span{
                                     margin-left: 22px;
                                     display: block;
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width: $breakMedium){
+        .middleCard{
+            .selectedProject{
+                padding: 0 5%;
+                h1{
+                    margin-bottom: 44px;
+                }
+                .imgCont{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    img{
+                        width: 45%;
                     }
                 }
             }

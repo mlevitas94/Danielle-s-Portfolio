@@ -7,7 +7,7 @@ import testImg from '../../assets/park.jpg'
 const Projects = (props) => {
     const { projects } = props
 
-    const [selectedProject, selectProject] = useState(null)
+    const [selectedProject, selectProject] = useState(1)
 
     const projectList = projects.map((project, i) => {
         return (
@@ -20,7 +20,7 @@ const Projects = (props) => {
                     <img src={testImg} />
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare. Rhoncus mattis rhoncus urna neque viverra. Mauris ultrices eros in cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor. Id eu nisl nunc mi ipsum faucibus vitae. Cras ornare arcu dui vivamus arcu felis bibendum. Urna et pharetra pharetra massa massa ultricies mi. Ut placerat orci nulla pellentesque dignissim enim. Lacinia quis vel eros donec ac odio tempor orci.</p>
                     <div className='moreButton'>
-                        <button>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></button>
+                        <button onClick={() => {selectProject(1)}}>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></button>
                     </div>
                 </div>
             </div>
@@ -52,14 +52,16 @@ const Projects = (props) => {
                             <div className='selectedProject'>
                                 <button onClick={() => {selectProject(null)}}><FontAwesomeIcon icon={faArrowAltCircleLeft}/></button>
                                 <h1>Project Name that could be long</h1>
-                                <img src={testImg} />
-                                <img src={testImg} />
-                                <img src={testImg} />
-                                <img src={testImg} />
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare. Rhoncus mattis rhoncus urna neque viverra. Mauris ultrices eros in cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor. Id eu nisl nunc mi ipsum faucibus vitae. Cras ornare arcu dui vivamus arcu felis bibendum. Urna et pharetra pharetra massa massa ultricies mi. Ut placerat orci nulla pellentesque dignissim enim. Lacinia quis vel eros donec ac odio tempor orci.</p>
                                 <div className='links'>
                                     <a>Link here</a>
                                     <a>Link here</a>
+                                </div>
+                                <div className='imgCont'>
+                                    <img src={testImg} />
+                                    <img src={testImg} />
+                                    <img src={testImg} />
+                                    <img src={testImg} />
                                 </div>
                             </div>
                     }
