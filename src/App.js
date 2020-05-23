@@ -41,7 +41,7 @@ function App() {
                   <Route exact path='/' component={Landing} />
                   <Route exact path='/about' component={About} />
                   <Route exact path='/contact' component={Contact} />
-                  <Route exact path='/projects' component={() => <Projects projects={projects} setProjects={setProjects}/>}/>
+                  <Route path='/projects' component={() => <Projects projects={projects} setProjects={setProjects}/>}/>
                 </Switch>
               </CSSTransition>
             </TransitionGroup>

@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Projects.scss'
+import { Switch, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSortDown, faArrowCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faSortDown, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import testImg from '../../assets/park.jpg'
+import Project from './Project'
 
 const Projects = (props) => {
     const { projects } = props
-
-    const [selectedProject, selectProject] = useState(1)
 
     const projectList = projects.map((project, i) => {
         return (
@@ -20,7 +20,7 @@ const Projects = (props) => {
                     <img src={testImg} />
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare. Rhoncus mattis rhoncus urna neque viverra. Mauris ultrices eros in cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor. Id eu nisl nunc mi ipsum faucibus vitae. Cras ornare arcu dui vivamus arcu felis bibendum. Urna et pharetra pharetra massa massa ultricies mi. Ut placerat orci nulla pellentesque dignissim enim. Lacinia quis vel eros donec ac odio tempor orci.</p>
                     <div className='moreButton'>
-                        <button onClick={() => {selectProject(1)}}>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></button>
+                        <Link to='/projects/projectname'>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>
                     </div>
                 </div>
             </div>
@@ -32,38 +32,28 @@ const Projects = (props) => {
             <div className='projectsCont'>
                 <div className='middleCard'>
                     {
-                        selectedProject === null ?
-                            <>
-                                <h1>Projects</h1>
-                                <div className='catFlex'>
-                                    <div className='catCont'>
-                                        <FontAwesomeIcon icon={faSortDown} />
-                                        <select>
-                                            <option>Audits</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className='projectsList'>
-                                    {projectList}
 
-                                </div>
-                            </>
-                            :
-                            <div className='selectedProject'>
-                                <button onClick={() => {selectProject(null)}}><FontAwesomeIcon icon={faArrowAltCircleLeft}/></button>
-                                <h1>Project Name that could be long</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare. Rhoncus mattis rhoncus urna neque viverra. Mauris ultrices eros in cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor. Id eu nisl nunc mi ipsum faucibus vitae. Cras ornare arcu dui vivamus arcu felis bibendum. Urna et pharetra pharetra massa massa ultricies mi. Ut placerat orci nulla pellentesque dignissim enim. Lacinia quis vel eros donec ac odio tempor orci.</p>
-                                <div className='links'>
-                                    <a>Link here</a>
-                                    <a>Link here</a>
-                                </div>
-                                <div className='imgCont'>
-                                    <img src={testImg} />
-                                    <img src={testImg} />
-                                    <img src={testImg} />
-                                    <img src={testImg} />
-                                </div>
-                            </div>
+                        <>
+                            <Route exact path='/projects' render={() => {
+                                return <>
+                                    <h1>Projects</h1>
+                                    <div className='catFlex'>
+                                        <div className='catCont'>
+                                            <FontAwesomeIcon icon={faSortDown} />
+                                            <select>
+                                                <option>Audits</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='projectsList'>
+                                        {projectList}
+
+                                    </div>
+                                </>
+                            }} />
+
+                            <Route exact path='/projects/projectname' render={() => <Project/>} />
+                        </>
                     }
                 </div>
             </div>
