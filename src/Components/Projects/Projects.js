@@ -1,6 +1,6 @@
 import React from 'react'
 import './Projects.scss'
-import { Switch, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import testImg from '../../assets/park.jpg'

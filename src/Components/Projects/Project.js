@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Projects.scss'
 import testImg from '../../assets/park.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,6 +6,12 @@ import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 const Project = () => {
+    useEffect(() => {
+        const images = document.querySelectorAll('.imgCont img')
+        if(images.length === 1){
+            images[0].style.width = '70%'
+        }
+    }, [])
     return (
         <div className='selectedProject'>
             <Link className='back' to='/projects'><FontAwesomeIcon icon={faArrowAltCircleLeft} /></Link>
