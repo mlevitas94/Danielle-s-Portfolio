@@ -139,16 +139,17 @@
             }
         }
         .selectedProject{
+            position: relative;
             .back{
-                position: absolute;
-                top: 0;
-                left: 0;
-                background-color: $accent1;
+                position: relative;
+                top: -15px;
+                right: 15px;
                 border: none;
                 font-size: $size2;
                 border-bottom-right-radius: 5px;
-                color: white;
-                padding: 10px 5px;
+                color: $accent1;
+                text-decoration: none;
+                font-size: $size1;
                 &:hover{
                     cursor: pointer;
                 }
@@ -235,6 +236,10 @@
                 padding: 0 5%;
                 h1{
                     margin-bottom: 44px;
+                }
+                .back{
+                    right: 44px;
+
                 }
                 .imgCont{
                     display: flex;

@@ -2,6 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const nodemailer = require("nodemailer");
 const massive = require('massive');
+const public = require('./publicendpoints/public')
+
 const {SERVER_PORT, DB_URL} = process.env
 const path = require('path')
 const app = express();
@@ -12,6 +14,10 @@ app.use((req, res, next) => {
     next()
 })
 app.use( express.static( `${__dirname}/../build` ) );
+
+
+//public endpoints
+app.get('/getprojects', public.getProjects)
 
 
 // app.post('/email', async (req,res) => {
