@@ -10,21 +10,27 @@ import AboutPortrait from './Components/About/assets/portrait.jpg'
 import LandingBackground from './assets/landing_image.jpeg'
 import ContactBackground from './assets/tree.jpg'
 import ProjectsBackground from './assets/park.jpg'
+import Axios from 'axios';
 
 
 
 function App() {
-  const [images, setImages] = useState(false)
-  const [projects, setProjects] = useState([1,1,1,1,1,1,1,1,1,1,1])
+  const [assets, setAssets] = useState({images : false, projects : false})
+  const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    document.querySelector('.lds-ring').classList.add('lds-ring-transition')
-    const imageAmount = document.querySelectorAll('#preload img').length
-    setImages(imageAmount)
+    document.querySelector('.lds-ring').style.opacity = '1'
+    document.querySelector('.lds-ring').style.transform = 'translate(0px, 0px) scale(1.3)'
+    Axios.get('/getprojects/').then(res => {
+      setAssets((prevState) => {return {...prevState, projects : true}})
+      setProjects(res.data)
+    }).catch(err => {
+      console.log(err)
+    })
   },[])
   return (
     <div className="App">
-      <div id='preload' onLoad={() => {setImages(true)}}>
+      <div id='preload' onLoad={() => {setAssets((prevState) => {return {...prevState, images : true}})}}>
         <img src={LandingBackground} alt='preload'/>
         <img src={AboutBackground} alt='preload'/>
         <img src={AboutPortrait} alt='preload'/>
@@ -33,7 +39,7 @@ function App() {
 
       </div>
       {
-        images === true ?
+        assets.images === true && assets.projects === true ?
           <Route render={({ location }) => (
             <TransitionGroup>
               <CSSTransition timeout={600} classNames='fade' key={location.key}>

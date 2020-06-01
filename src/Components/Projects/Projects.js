@@ -14,10 +14,10 @@ const Projects = (props) => {
             <div key={i} className='project'>
                 <div className='top'>
                     <span>{i + 1 < 10 ? '0' + (i + 1) : i + 1}</span>
-                    <h3>Lorem Ipsum</h3>
+                    <h3>{project.title}</h3>
                 </div>
                 <div className='bottom'>
-                    <img src={testImg} />
+                    <img src={project.images[0]} />
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare. Rhoncus mattis rhoncus urna neque viverra. Mauris ultrices eros in cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor. Id eu nisl nunc mi ipsum faucibus vitae. Cras ornare arcu dui vivamus arcu felis bibendum. Urna et pharetra pharetra massa massa ultricies mi. Ut placerat orci nulla pellentesque dignissim enim. Lacinia quis vel eros donec ac odio tempor orci.</p>
                     <div className='moreButton'>
                         <Link to='/projects/projectname'>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>
@@ -32,27 +32,36 @@ const Projects = (props) => {
             <div className='projectsCont'>
                 <div className='middleCard'>
                     {
-
                         <>
                             <Route exact path='/projects' render={() => {
                                 return <>
                                     <h1>Projects</h1>
                                     <div className='catFlex'>
-                                        <div className='catCont'>
-                                            <FontAwesomeIcon icon={faSortDown} />
-                                            <select>
-                                                <option>Audits</option>
-                                            </select>
-                                        </div>
+                                        {
+                                            projects.length === 0 ?
+                                                null
+                                                :
+                                                <div className='catCont'>
+                                                    <FontAwesomeIcon icon={faSortDown} />
+                                                    <select>
+                                                        <option>Audits</option>
+                                                    </select>
+                                                </div>
+                                        }
                                     </div>
                                     <div className='projectsList'>
-                                        {projectList}
+                                        {
+                                            projects.length === 0 ?
+                                                <p className='noProjects'>No projects to show</p>
+                                                :
+                                                projectList
+                                        }
 
                                     </div>
                                 </>
                             }} />
 
-                            <Route exact path='/projects/projectname' render={() => <Project/>} />
+                            <Route exact path='/projects/projectname' render={() => <Project />} />
                         </>
                     }
                 </div>

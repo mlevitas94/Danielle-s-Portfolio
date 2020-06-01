@@ -17,7 +17,7 @@ app.use( express.static( `${__dirname}/../build` ) );
 
 
 //public endpoints
-app.get('/getprojects', public.getProjects)
+app.get('/getprojects/', public.getProjects)
 
 
 // app.post('/email', async (req,res) => {

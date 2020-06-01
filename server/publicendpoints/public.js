@@ -1,5 +1,5 @@
 module.exports = {
-    getProjects = async (req,res) => {
+    getProjects : async (req,res) => {
         const db = req.app.get('db')
 
         try{
@@ -9,8 +9,5 @@ module.exports = {
             console.log(err)
             return res.status(500).send('Server Err')
         }
-        
-
-        
     }
 }
