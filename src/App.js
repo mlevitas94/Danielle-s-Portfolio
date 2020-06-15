@@ -11,47 +11,54 @@ import LandingBackground from './assets/landing_image.jpeg'
 import ContactBackground from './assets/tree.jpg'
 import ProjectsBackground from './assets/park.jpg'
 import Axios from 'axios';
+import Nav from './Components/Nav/Nav';
 
 
 
 function App() {
-  const [assets, setAssets] = useState({images : false, projects : false})
+  const [assets, setAssets] = useState({ images: false, projects: false })
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
     document.querySelector('.lds-ring').style.opacity = '1'
     document.querySelector('.lds-ring').style.transform = 'translate(0px, 0px) scale(1.3)'
     Axios.get('/getprojects/').then(res => {
-      setAssets((prevState) => {return {...prevState, projects : true}})
+      setAssets((prevState) => { return { ...prevState, projects: true } })
       setProjects(res.data)
     }).catch(err => {
       console.log(err)
     })
-  },[])
+  }, [])
   return (
     <div className="App">
-      <div id='preload' onLoad={() => {setAssets((prevState) => {return {...prevState, images : true}})}}>
-        <img src={LandingBackground} alt='preload'/>
-        <img src={AboutBackground} alt='preload'/>
-        <img src={AboutPortrait} alt='preload'/>
-        <img src={ContactBackground} alt='preload'/>
-        <img src={ProjectsBackground} alt='preload'/>
+      <div id='preload' onLoad={() => { setAssets((prevState) => { return { ...prevState, images: true } }) }}>
+        <img src={LandingBackground} alt='preload' />
+        <img src={AboutBackground} alt='preload' />
+        <img src={AboutPortrait} alt='preload' />
+        <img src={ContactBackground} alt='preload' />
+        <img src={ProjectsBackground} alt='preload' />
 
       </div>
       {
         assets.images === true && assets.projects === true ?
-          <Route render={({ location }) => (
-            <TransitionGroup>
-              <CSSTransition timeout={600} classNames='fade' key={location.key}>
-                <Switch location={location}>
-                  <Route exact path='/' component={Landing} />
-                  <Route exact path='/about' component={About} />
-                  <Route exact path='/contact' component={Contact} />
-                  <Route path='/projects' component={() => <Projects projects={projects} setProjects={setProjects}/>}/>
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          )} />
+          <>
+            <Route render={({ location }) => (
+              <>
+                {location.pathname === '/' ? null : <Nav/>}
+                {console.log(location)}
+                <TransitionGroup>
+                  <CSSTransition timeout={600} classNames='fade' key={location.key}>
+                    <Switch location={location}>
+                      <Route exact path='/' component={Landing} />
+                      <Route exact path='/about' component={About} />
+                      <Route exact path='/contact' component={Contact} />
+                      <Route path='/projects' component={() => <Projects projects={projects} setProjects={setProjects} />} />
+                    </Switch>
+                  </CSSTransition>
+                </TransitionGroup>
+              </>
+            )} />
+          </>
           :
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
       }

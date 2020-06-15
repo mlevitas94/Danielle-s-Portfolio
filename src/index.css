@@ -118,6 +118,9 @@ table {
 	overflow: hidden;
 	will-change: opacity;
 }
+p{
+	letter-spacing: 0.5px;
+}
 
 .fade-enter {
 	opacity: 0;
