@@ -1,12 +1,14 @@
 import React from 'react'
 import './About.scss'
 import PhotoBy from '../../assets/Components/PhotoBy/PhotoBy'
+import Nav from '../Nav/Nav'
 
 const About = () => {
     return (
         <div className='page'>
             <div className='aboutCont'>
                 <div className='middleCard'>
+                    <Nav/>
                     <div className='imgSide'>
                         <h1>About Me</h1>
                         <div className='image'></div>

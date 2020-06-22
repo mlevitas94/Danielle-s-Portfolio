@@ -192,7 +192,7 @@
         .content{
             width: 80%;
             margin: auto;
-            padding: 44px;
+            padding: 0px 44px 44px 44px;
             border-radius: 10px;
             box-shadow: 0px 0px 20px 2px #00000069;
             position: relative;
@@ -214,6 +214,9 @@
                 z-index: -1;
             }
             .top{
+                h1{
+                    margin-top: 44px;
+                }
        
                 .infoSplit{
                     justify-content: space-around;

@@ -11,7 +11,6 @@ import LandingBackground from './assets/landing_image.jpeg'
 import ContactBackground from './assets/tree.jpg'
 import ProjectsBackground from './assets/park.jpg'
 import Axios from 'axios';
-import Nav from './Components/Nav/Nav';
 
 
 
@@ -43,20 +42,18 @@ function App() {
         assets.images === true && assets.projects === true ?
           <>
             <Route render={({ location }) => (
-              <>
-                {location.pathname === '/' ? null : <Nav/>}
-                {console.log(location)}
-                <TransitionGroup>
-                  <CSSTransition timeout={600} classNames='fade' key={location.key}>
-                    <Switch location={location}>
-                      <Route exact path='/' component={Landing} />
-                      <Route exact path='/about' component={About} />
-                      <Route exact path='/contact' component={Contact} />
-                      <Route path='/projects' component={() => <Projects projects={projects} setProjects={setProjects} />} />
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              </>
+
+              <TransitionGroup>
+                <CSSTransition timeout={600} classNames='fade' key={location.key}>
+                  <Switch location={location}>
+                    <Route exact path='/' component={Landing} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/contact' component={Contact} />
+                    <Route path='/projects' component={() => <Projects projects={projects} setProjects={setProjects} />} />
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+
             )} />
           </>
           :

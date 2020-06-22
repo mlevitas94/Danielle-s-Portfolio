@@ -3,8 +3,8 @@ import './Projects.scss'
 import { Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
-import testImg from '../../assets/park.jpg'
 import Project from './Project'
+import Nav from '../Nav/Nav';
 
 const Projects = (props) => {
     const { projects } = props
@@ -31,6 +31,7 @@ const Projects = (props) => {
         <div className='page'>
             <div className='projectsCont'>
                 <div className='middleCard'>
+                    <Nav/>
                     {
                         <>
                             <Route exact path='/projects' render={() => {
