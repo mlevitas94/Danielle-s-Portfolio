@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import './Nav.scss'
 
-const Nav = () => {
+const NavDesk = () => {
 
     return (
         <div className='navCont'>
@@ -22,4 +22,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default NavDesk

@@ -4,7 +4,7 @@ import { Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import Project from './Project'
-import Nav from '../Nav/Nav';
+import NavDesk from '../Nav/NavDesk';
 
 const Projects = (props) => {
     const { projects } = props
@@ -31,7 +31,7 @@ const Projects = (props) => {
         <div className='page'>
             <div className='projectsCont'>
                 <div className='middleCard'>
-                    <Nav/>
+                    <NavDesk/>
                     {
                         <>
                             <Route exact path='/projects' render={() => {

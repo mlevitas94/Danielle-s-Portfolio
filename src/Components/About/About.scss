@@ -1,159 +1,164 @@
-@import '../../Variables.scss';
-.aboutCont{
-    display: flex;
-    background-image: url('../../assets/DSC_0175.jpg');
-	background-repeat: no-repeat;
-    background-size: cover;
-	background-position: center;
-    background-attachment: fixed;
-    overflow: auto;
-    position: relative;
+@import "../../Variables.scss";
+.aboutCont {
     height: 100vh;
-    .middleCard{
+    overflow: auto;
+    background-image: url("../../assets/DSC_0175.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    .contPage{
         display: flex;
-        flex-direction: column;
-        max-width: 1288px;
-        .imgSide{
-            display: block;
-            padding: 33px;
-            background-color: white;
-            h1{
-                font-family: $fontStyle2;
-                font-weight: bolder;
-                font-size: $size3;
-                padding-bottom: 10px;
-            }
-            .image{
-                background-image: url('./assets/portrait.jpg');
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
-                min-height: 200px;
-                width: 100%;
-            }
-        }
-        .contentSide{
-            z-index: 1;
-            opacity: 1;
-            height: 100%;
+        position: relative;
+        .middleCard {
+            display: flex;
+            flex-direction: column;
+            max-width: 1288px;
             position: relative;
-            .photoBy{
-                position: relative;
-                margin: 11px 22px;
-                text-align: right;
-                bottom: unset;
-                right: unset;
-            }
-            .content{
-                position: relative;
-                font-family: $fontStyle1;
-                line-height: 1.3rem;
+    
+            .imgSide {
+                display: block;
                 padding: 33px;
-                font-weight: 600;
-                text-shadow: 0px 0px 30px white;
-                position: relative;
-                overflow: hidden;
-                background-color: #fdd3f65e;
-                &:before{
-                    content: "";
-                    background: url('../../assets/DSC_0175.jpg'); 
-                    background-attachment: fixed;
+                background-color: white;
+                h1 {
+                    font-family: $fontStyle2;
+                    font-weight: bolder;
+                    font-size: $size3;
+                    padding-bottom: 10px;
+                }
+                .image {
+                    background-image: url("./assets/portrait.jpg");
+                    background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center;
-                    position: absolute;
-                    left: 0px;
-                    right: 0px;
-                    top: 0px; 
-                    bottom: 0px;
-                    filter: blur(5px);
-                    z-index: -1;
+                    min-height: 200px;
+                    width: 100%;
                 }
             }
-        }
-    }
-    @media screen and (min-width: $breakSmall){
-        height: 100vh;
-        .middleCard{
-            width: 80%;
-            margin: 44px auto 0 auto;
-            .imgSide{
-                border-top-right-radius: 5px;
-                border-top-left-radius: 5px;
-                .image{
-                    min-height: 400px;
-
-                }
-            }
-            .contentSide{
-                .photoBy{
+            .contentSide {
+                z-index: 1;
+                opacity: 1;
+                height: 100%;
+                position: relative;
+                .photoBy {
                     position: relative;
-                    bottom: -11px;
+                    margin: 11px 22px;
                     text-align: right;
-                    background: unset;
+                    bottom: unset;
                     right: unset;
-                    margin: unset;
-                    // &::before{
-                    //     background: unset;
-                    // }
-                    
                 }
-            }
-        }
-        .contentSide{
-            margin-bottom: 44px;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-            .content{
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
+                .content {
+                    position: relative;
+                    font-family: $fontStyle1;
+                    line-height: 1.3rem;
+                    padding: 33px;
+                    font-weight: 600;
+                    text-shadow: 0px 0px 30px white;
+                    position: relative;
+                    overflow: hidden;
+                    background-color: #fdd3f65e;
+                    &:before {
+                        content: "";
+                        background: url("../../assets/DSC_0175.jpg");
+                        background-attachment: fixed;
+                        background-size: cover;
+                        background-position: center;
+                        position: absolute;
+                        left: 0px;
+                        right: 0px;
+                        top: 0px;
+                        bottom: 0px;
+                        filter: blur(5px);
+                        z-index: -1;
+                    }
+                }
             }
         }
     }
-    @media screen and (min-width:$breakLarge){
-        height: 100vh;
-        align-items: safe center;
-        .middleCard{
-            margin: auto;
-            flex-direction: row;
-            position: relative;
-            min-height: min-content;
-            .imgSide{
-                border-bottom-left-radius: 5px;
-                border-top-right-radius: 0px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 22px;
-                .image{
-                    min-width: 400px;
 
+    @media screen and (min-width: $breakSmall) {
+        .contPage{
+            .middleCard {
+                width: 80%;
+                margin: 44px auto 0 auto;
+                .imgSide {
+                    border-top-right-radius: 5px;
+                    border-top-left-radius: 5px;
+                    .image {
+                        min-height: 400px;
+                    }
                 }
-                
+                .contentSide {
+                    margin-bottom: 44px;
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    .photoBy {
+                        position: relative;
+                        bottom: -11px;
+                        text-align: right;
+                        background: unset;
+                        right: unset;
+                        margin: unset;
+                        // &::before{
+                        //     background: unset;
+                        // }
+                    }
+                    .content {
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+                }
             }
-            .contentSide{
-                margin-bottom: unset;
-                height: inherit;
-                border-top-right-radius: 5px;
-                border-bottom-left-radius: 0px;
-                .content{
+
+        }
+    }
+    @media screen and (min-width: $breakLarge) {
+        .contPage{
+            height: 100vh;
+            align-items: safe center;
+            .middleCard {
+                margin: auto;
+                flex-direction: row;
+                min-height: min-content;
+                .imgSide {
+                    border-bottom-left-radius: 5px;
+                    border-top-right-radius: 0px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 22px;
+                    .image {
+                        min-width: 400px;
+                    }
+                }
+                .contentSide {
+                    margin-bottom: unset;
+                    height: inherit;
                     border-top-right-radius: 5px;
                     border-bottom-left-radius: 0px;
-                    display: flex;
-                    align-items: center;
-                    padding: 22px;
-                    height: 100%;
+                    .content {
+                        border-top-right-radius: 5px;
+                        border-bottom-left-radius: 0px;
+                        display: flex;
+                        align-items: center;
+                        padding: 22px;
+                        height: 100%;
+                    }
                 }
             }
+
         }
     }
-    @media screen and (min-width: $breakXLarge){
-        .middleCard{
-            .imgSide{
-                .image{
-                    min-width: 600px;
-
+    @media screen and (min-width: $breakXLarge) {
+        .contPage{
+            .middleCard {
+                .imgSide {
+                    .image {
+                        min-width: 600px;
+                    }
                 }
             }
+
         }
     }
 }

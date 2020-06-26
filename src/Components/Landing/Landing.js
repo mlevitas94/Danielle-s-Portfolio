@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './Landing.scss'
 import { Link } from 'react-router-dom'
 import PhotoBy from '../../assets/Components/PhotoBy/PhotoBy'

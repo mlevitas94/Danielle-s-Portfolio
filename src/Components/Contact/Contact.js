@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Contact.scss'
 import {FontAwesomeIcon}from '@fortawesome/react-fontawesome'
 import {faTwitter, faLinkedin, faInstagram} from '@fortawesome/free-brands-svg-icons'
-import Nav from '../Nav/Nav'
+import NavDesk from '../Nav/NavDesk'
 
 const Contact = () => {
     const [inputs, setInputs] = useState({
@@ -14,7 +14,7 @@ const Contact = () => {
         <div className='page'>
             <div className='contactCont'>
                 <div className='content'>
-                    <Nav/>
+                    <NavDesk/>
                     <div className='top'>
                         <h1>Contact Me</h1>
                         <div className='infoSplit'>

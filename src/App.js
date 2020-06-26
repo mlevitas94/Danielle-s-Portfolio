@@ -15,7 +15,7 @@ import Axios from 'axios';
 
 
 function App() {
-  const [assets, setAssets] = useState({ images: false, projects: false })
+  const [assets, setAssets] = useState({ images: 0, projects: false })
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
@@ -30,16 +30,16 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <div id='preload' onLoad={() => { setAssets((prevState) => { return { ...prevState, images: true } }) }}>
-        <img src={LandingBackground} alt='preload' />
-        <img src={AboutBackground} alt='preload' />
-        <img src={AboutPortrait} alt='preload' />
-        <img src={ContactBackground} alt='preload' />
-        <img src={ProjectsBackground} alt='preload' />
+      <div id='preload'>
+        <img src={LandingBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}}  alt='preload' />
+        <img src={AboutBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
+        <img src={AboutPortrait} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
+        <img src={ContactBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
+        <img src={ProjectsBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
 
       </div>
       {
-        assets.images === true && assets.projects === true ?
+        assets.images === 5 && assets.projects === true ?
           <>
             <Route render={({ location }) => (
 
