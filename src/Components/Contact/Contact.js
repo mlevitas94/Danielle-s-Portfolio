@@ -3,6 +3,7 @@ import './Contact.scss'
 import {FontAwesomeIcon}from '@fortawesome/react-fontawesome'
 import {faTwitter, faLinkedin, faInstagram} from '@fortawesome/free-brands-svg-icons'
 import NavDesk from '../Nav/NavDesk'
+import NavMobile from '../Nav/NavMobile'
 
 const Contact = () => {
     const [inputs, setInputs] = useState({
@@ -13,6 +14,7 @@ const Contact = () => {
     return (
         <div className='page'>
             <div className='contactCont'>
+                <NavMobile/>
                 <div className='content'>
                     <NavDesk/>
                     <div className='top'>

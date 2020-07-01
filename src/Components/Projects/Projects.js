@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import Project from './Project'
 import NavDesk from '../Nav/NavDesk';
+import NavMobile from '../Nav/NavMobile'
 
 const Projects = (props) => {
     const { projects } = props
@@ -29,43 +30,47 @@ const Projects = (props) => {
 
     return (
         <div className='page'>
-            <div className='projectsCont'>
-                <div className='middleCard'>
-                    <NavDesk/>
-                    {
-                        <>
-                            <Route exact path='/projects' render={() => {
-                                return <>
-                                    <h1>Projects</h1>
-                                    <div className='catFlex'>
-                                        {
-                                            projects.length === 0 ?
-                                                null
-                                                :
-                                                <div className='catCont'>
-                                                    <FontAwesomeIcon icon={faSortDown} />
-                                                    <select>
-                                                        <option>Audits</option>
-                                                    </select>
-                                                </div>
-                                        }
-                                    </div>
-                                    <div className='projectsList'>
-                                        {
-                                            projects.length === 0 ?
-                                                <p className='noProjects'>No projects to show</p>
-                                                :
-                                                projectList
-                                        }
+            <div className='preProjectCont'>
+                <NavMobile/>
+                <div className='projectsCont'>
+                    <div className='middleCard'>
+                        <NavDesk />
+                        {
+                            <>
+                                <Route exact path='/projects' render={() => {
+                                    return <>
+                                        <h1>Projects</h1>
+                                        <div className='catFlex'>
+                                            {
+                                                projects.length === 0 ?
+                                                    null
+                                                    :
+                                                    <div className='catCont'>
+                                                        <FontAwesomeIcon icon={faSortDown} />
+                                                        <select>
+                                                            <option>Audits</option>
+                                                        </select>
+                                                    </div>
+                                            }
+                                        </div>
+                                        <div className='projectsList'>
+                                            {
+                                                projects.length === 0 ?
+                                                    <p className='noProjects'>No projects to show</p>
+                                                    :
+                                                    projectList
+                                            }
 
-                                    </div>
-                                </>
-                            }} />
+                                        </div>
+                                    </>
+                                }} />
 
-                            <Route exact path='/projects/projectname' render={() => <Project />} />
-                        </>
-                    }
+                                <Route exact path='/projects/projectname' render={() => <Project />} />
+                            </>
+                        }
+                    </div>
                 </div>
+
             </div>
 
         </div>

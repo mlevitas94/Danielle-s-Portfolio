@@ -1,232 +1,234 @@
 @import '../../Variables.scss';
-
-.projectsCont{
-    height: 100vh;
-    align-items: center;
-    font-family: $fontStyle1;
-    overflow: auto;
-    display: flex;
-    align-items: safe center;
-    &:before{
-        content: "";
-        background: url('../../assets/park.jpg'); 
-        background-size: cover;
-        background-position: center;
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        top: 0px; 
-        bottom: 0px;
-        filter: blur(5px);
-        transform: scale(1.1);
-        z-index: -1;
-    }
-    .middleCard{
-        position: relative;
-        width: 90%;
-        background-color: #ffffffe3;
-        padding: 0px 22px 22px 22px;
-        border-radius: 5px;
-        margin: auto;
-        h1{
-            text-align: center;
-            margin-bottom: 22px;
-            margin-top: 22px;
-            font-size: $size4;
-            font-family: $fontStyle2;
-
+.preProjectCont{
+    .projectsCont{
+        height: 100vh;
+        //repeated align items
+        align-items: center;
+        font-family: $fontStyle1;
+        overflow: auto;
+        display: flex;
+        align-items: safe center;
+        &:before{
+            content: "";
+            background: url('../../assets/park.jpg'); 
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px; 
+            bottom: 0px;
+            filter: blur(5px);
+            transform: scale(1.1);
+            z-index: -1;
         }
-        .catFlex{
-            display: flex;
-            justify-content: center;
-            .catCont{
-                position: relative;
-                display: inline-block;
-                margin: 0 auto;
-                svg{
-                    position: absolute;
-                    right: 0px;
-                }
-                select{
-                    border: none;
-                    border-bottom: 1px solid grey;
-                    background: transparent;
-                    padding: 2px 15px 2px 5px;
-                    border-radius: 0px;
-                    text-align: left;
-                    font-size: 1rem;
-                    font-family: $fontStyle1;
-                    -webkit-appearance: none;
-                    outline: none;
+        .middleCard{
+            position: relative;
+            width: 90%;
+            background-color: #ffffffe3;
+            padding: 0px 22px 22px 22px;
+            border-radius: 5px;
+            margin: auto;
+            h1{
+                text-align: center;
+                margin-bottom: 22px;
+                margin-top: 22px;
+                font-size: $size4;
+                font-family: $fontStyle2;
+    
+            }
+            .catFlex{
+                display: flex;
+                justify-content: center;
+                .catCont{
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 auto;
+                    svg{
+                        position: absolute;
+                        right: 0px;
+                    }
+                    select{
+                        border: none;
+                        border-bottom: 1px solid grey;
+                        background: transparent;
+                        padding: 2px 15px 2px 5px;
+                        border-radius: 0px;
+                        text-align: left;
+                        font-size: 1rem;
+                        font-family: $fontStyle1;
+                        -webkit-appearance: none;
+                        outline: none;
+                    }
+        
                 }
     
             }
-
-        }
-        .projectsList{
-            .noProjects{
-                text-align: center;
-            }
-            .project{
-                border-bottom: 1px solid grey;
-                padding-bottom: 22px;
-                margin: 22px 0;
-                .top{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    margin-bottom: 22px;
-                    span{
-                        font-size: 72px;
-                        font-weight: 100;
-                    }
-                    h3{
-                        font-size: $size1;
-                        font-family: $fontStyle2;
-                        font-weight: 700;
-                        text-align: right;
-                    }
-                }
-                .bottom{
-                    p{
-                        overflow: hidden;
-                        position: relative;
-                        line-height: 1.2em;
-                        max-height: 7.2em;
-                        background-color: white;
-                        padding: 1.2em;
-                        &:after{
-                            content: "";
-                            position: absolute;
-                            right: 0;
-                            bottom: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 3.6em;
-                            background: rgb(255,255,255);
-                            background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-
-                        }
-                    }
-
-                    img{
-                        width: 100%;
-                        border-top-right-radius: 5px;
-                        border-top-left-radius: 5px;
-                        display: block;
-                    }
-                    
-                    .moreButton{
-                        background-color: white;
-                        border-radius: 5px;
-                        &:hover{
-                            cursor: pointer;
-                        }
-                        a{
-                            text-align: center;
-                            display: block;
-                            padding: 1.2em 0;
-                            background-color: transparent;
-                            border: none;
-                            width: 100%;
-                            outline: none;
-                            color: black;
-                            text-decoration: none;
-                            &:hover{
-                                cursor: pointer;
-                            }
-                            span{
-                                display: none;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .selectedProject{
-            position: relative;
-            .back{
-                position: relative;
-                top: -15px;
-                right: 15px;
-                border: none;
-                font-size: $size2;
-                border-bottom-right-radius: 5px;
-                color: $accent1;
-                text-decoration: none;
-                font-size: $size1;
-                &:hover{
-                    cursor: pointer;
-                }
-            }
-            .imgCont{
-                margin-top: 44px;
-                img{
-                    width: 100%;
-                    margin-bottom: 22px;
-                }
-            }
-            p{
-                line-height: 1.2em;
-            }
-            .links{
-                margin-top: 22px;
-                a{
-                    display: block;
-                    margin-bottom: 11px;
-                    color: $accent1;
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-    @media screen and (min-width : $breakSmall){
-        .middleCard{
             .projectsList{
+                .noProjects{
+                    text-align: center;
+                }
                 .project{
+                    border-bottom: 1px solid grey;
+                    padding-bottom: 22px;
+                    margin: 22px 0;
                     .top{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: 22px;
+                        span{
+                            font-size: 72px;
+                            font-weight: 100;
+                        }
                         h3{
-                            width: 60%;
-                            text-align: center;
+                            font-size: $size1;
+                            font-family: $fontStyle2;
+                            font-weight: 700;
+                            text-align: right;
                         }
                     }
                     .bottom{
-                        clear: both;
-                        overflow: auto;
-                        img{
-                            clear: both;
-                            width: 60%;
-                            float: right;
-                            margin: 0 0 15px 22px;
-                            border-radius: 0px;
-                        }
                         p{
-                            background: unset;
-                            max-height: unset;
-                            overflow: unset;
-                            padding: 0px;
+                            overflow: hidden;
+                            position: relative;
+                            line-height: 1.2em;
+                            max-height: 7.2em;
+                            background-color: white;
+                            padding: 1.2em;
                             &:after{
-                                display: none;
+                                content: "";
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 3.6em;
+                                background: rgb(255,255,255);
+                                background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    
                             }
                         }
+    
+                        img{
+                            width: 100%;
+                            border-top-right-radius: 5px;
+                            border-top-left-radius: 5px;
+                            display: block;
+                        }
+                        
                         .moreButton{
-                            background: none;
-                            float: left;
+                            background-color: white;
+                            border-radius: 5px;
+                            &:hover{
+                                cursor: pointer;
+                            }
                             a{
-                                background-color: $accent1;
-                                border-radius: 27px;
-                                width: 150px;
-                                margin-top: 22px;
-                                color: white;
-                                position: relative;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                padding: 10px;
-                                font-size: 16px;
+                                text-align: center;
+                                display: block;
+                                padding: 1.2em 0;
+                                background-color: transparent;
+                                border: none;
+                                width: 100%;
+                                outline: none;
+                                color: black;
+                                text-decoration: none;
+                                &:hover{
+                                    cursor: pointer;
+                                }
                                 span{
-                                    margin-left: 22px;
-                                    display: block;
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .selectedProject{
+                position: relative;
+                .back{
+                    position: relative;
+                    top: -15px;
+                    right: 15px;
+                    border: none;
+                    font-size: $size2;
+                    border-bottom-right-radius: 5px;
+                    color: $accent1;
+                    text-decoration: none;
+                    font-size: $size1;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                .imgCont{
+                    margin-top: 44px;
+                    img{
+                        width: 100%;
+                        margin-bottom: 22px;
+                    }
+                }
+                p{
+                    line-height: 1.2em;
+                }
+                .links{
+                    margin-top: 22px;
+                    a{
+                        display: block;
+                        margin-bottom: 11px;
+                        color: $accent1;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        @media screen and (min-width : $breakSmall){
+            .middleCard{
+                .projectsList{
+                    .project{
+                        .top{
+                            h3{
+                                width: 60%;
+                                text-align: center;
+                            }
+                        }
+                        .bottom{
+                            clear: both;
+                            overflow: auto;
+                            img{
+                                clear: both;
+                                width: 60%;
+                                float: right;
+                                margin: 0 0 15px 22px;
+                                border-radius: 0px;
+                            }
+                            p{
+                                background: unset;
+                                max-height: unset;
+                                overflow: unset;
+                                padding: 0px;
+                                &:after{
+                                    display: none;
+                                }
+                            }
+                            .moreButton{
+                                background: none;
+                                float: left;
+                                a{
+                                    background-color: $accent1;
+                                    border-radius: 27px;
+                                    width: 150px;
+                                    margin-top: 22px;
+                                    color: white;
+                                    position: relative;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    span{
+                                        margin-left: 22px;
+                                        display: block;
+                                    }
                                 }
                             }
                         }
@@ -234,32 +236,34 @@
                 }
             }
         }
-    }
-    @media screen and (min-width: $breakMedium){
-        .middleCard{
-            .selectedProject{
-                padding: 0 5%;
-                h1{
-                    margin-bottom: 44px;
-                }
-                .back{
-                    right: 44px;
-
-                }
-                .imgCont{
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-evenly;
-                    img{
-                        width: 45%;
+        @media screen and (min-width: $breakMedium){
+            .middleCard{
+                width: 80%;
+                .selectedProject{
+                    padding: 0 5%;
+                    h1{
+                        margin-bottom: 44px;
+                    }
+                    .back{
+                        right: 44px;
+    
+                    }
+                    .imgCont{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
+                        img{
+                            width: 45%;
+                        }
                     }
                 }
             }
         }
-    }
-    @media screen and (min-width: $breakLarge){
-        .middleCard{
-            width: 886px;
+        @media screen and (min-width: $breakLarge){
+            .middleCard{
+                width: 800px;
+            }
         }
     }
+
 }
