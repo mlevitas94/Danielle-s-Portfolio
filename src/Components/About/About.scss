@@ -65,12 +65,11 @@
                         background-position: center;
                         position: absolute;
                         left: 0px;
-                        right: 0px;
                         top: 0px;
-                        bottom: 0px;
                         filter: blur(5px);
                         z-index: -1;
                         height: 100%;
+                        width: 100%;
                     }
                 }
             }
@@ -100,9 +99,6 @@
                         background: unset;
                         right: unset;
                         margin: unset;
-                        // &::before{
-                        //     background: unset;
-                        // }
                     }
                     .content {
                         border-bottom-left-radius: 5px;
