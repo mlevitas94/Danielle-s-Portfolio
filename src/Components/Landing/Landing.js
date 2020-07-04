@@ -6,7 +6,9 @@ import PhotoBy from '../../assets/Components/PhotoBy/PhotoBy'
 const Landing = () => {
     return (
         <div className='page'>
-            <div className='landingCont'>
+            <div className='landingCont' onLoad={(e) => {
+                document.querySelector('.landCont').style.height = `${window.innerHeight}px`
+            }}>
                 <div className='landingTitle'>
                     <h1>Danielle Elmers</h1>
                     <h2>Copywriter & Editor</h2>
