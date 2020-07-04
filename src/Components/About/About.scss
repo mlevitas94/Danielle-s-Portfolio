@@ -1,6 +1,6 @@
 @import "../../Variables.scss";
 .aboutCont {
-    height: 100vh;
+    height: 100%;
     overflow: auto;
     background-image: url("../../assets/DSC_0175.jpg");
     background-repeat: no-repeat;
@@ -70,6 +70,7 @@
                         bottom: 0px;
                         filter: blur(5px);
                         z-index: -1;
+                        height: 100%;
                     }
                 }
             }
