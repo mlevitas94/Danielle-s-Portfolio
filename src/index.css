@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .App{
-	position: relative;
 }
 *{
 	box-sizing: border-box;
@@ -117,6 +116,7 @@ table {
 	right: 0;
 	overflow: hidden;
 	will-change: opacity;
+	height: 100%;
 }
 p{
 	letter-spacing: 0.5px;
