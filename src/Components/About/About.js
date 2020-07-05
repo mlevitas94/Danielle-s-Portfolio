@@ -17,6 +17,7 @@ const About = () => {
                             <div className='image'></div>
                         </div>
                         <div className='contentSide'>
+                            <div className='blur'></div>
                             <div className='content'>
                                 <p>
                                     Hi! My name is Danielle, and I am a sucker for words: Big words, short words, simple words, and even those long spelling bee words that no one ever knows. Words, grammar, and writing — that’s my thing.
