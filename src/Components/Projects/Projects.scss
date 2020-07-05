@@ -1,9 +1,9 @@
 @import '../../Variables.scss';
 .preProjectCont{
+    height: 100%;
     .projectsCont{
-        height: 100vh;
+        height: 100%;
         //repeated align items
-        align-items: center;
         font-family: $fontStyle1;
         overflow: auto;
         display: flex;
