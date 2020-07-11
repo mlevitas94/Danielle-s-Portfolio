@@ -1,54 +1,53 @@
-@import '../../Variables.scss';
-.preProjectCont{
+@import "../../Variables.scss";
+.preProjectCont {
     height: 100%;
-    .projectsCont{
+    .projectsCont {
         height: 100%;
         //repeated align items
         font-family: $fontStyle1;
         overflow: auto;
         display: flex;
         align-items: safe center;
-        &:before{
+        &:before {
             content: "";
-            background: url('../../assets/park.jpg'); 
+            background: url("../../assets/park.jpg");
             background-size: cover;
             background-position: center;
             position: absolute;
             left: 0px;
             right: 0px;
-            top: 0px; 
+            top: 0px;
             bottom: 0px;
             filter: blur(5px);
             transform: scale(1.1);
             z-index: -1;
         }
-        .middleCard{
+        .middleCard {
             position: relative;
             width: 90%;
             background-color: #ffffffe3;
             padding: 0px 22px 22px 22px;
             border-radius: 5px;
             margin: auto;
-            h1{
+            h1 {
                 text-align: center;
                 margin-bottom: 22px;
                 margin-top: 22px;
                 font-size: $size4;
                 font-family: $fontStyle2;
-    
             }
-            .catFlex{
+            .catFlex {
                 display: flex;
                 justify-content: center;
-                .catCont{
+                .catCont {
                     position: relative;
                     display: inline-block;
                     margin: 0 auto;
-                    svg{
+                    svg {
                         position: absolute;
                         right: 0px;
                     }
-                    select{
+                    select {
                         border: none;
                         border-bottom: 1px solid grey;
                         background: transparent;
@@ -60,43 +59,42 @@
                         -webkit-appearance: none;
                         outline: none;
                     }
-        
                 }
-    
             }
-            .projectsList{
-                .noProjects{
+            .projectsList {
+                .noProjects {
                     text-align: center;
                 }
-                .project{
+
+                .project {
                     border-bottom: 1px solid grey;
                     padding-bottom: 22px;
                     margin: 22px 0;
-                    .top{
+                    .top {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
                         margin-bottom: 22px;
-                        span{
+                        span {
                             font-size: 72px;
                             font-weight: 100;
                         }
-                        h3{
+                        h3 {
                             font-size: $size1;
                             font-family: $fontStyle2;
                             font-weight: 700;
                             text-align: right;
                         }
                     }
-                    .bottom{
-                        p{
+                    .bottom {
+                        p {
                             overflow: hidden;
                             position: relative;
                             line-height: 1.2em;
                             max-height: 7.2em;
                             background-color: white;
                             padding: 1.2em;
-                            &:after{
+                            &:after {
                                 content: "";
                                 position: absolute;
                                 right: 0;
@@ -104,26 +102,29 @@
                                 left: 0;
                                 width: 100%;
                                 height: 3.6em;
-                                background: rgb(255,255,255);
-                                background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    
+                                background: rgb(255, 255, 255);
+                                background: linear-gradient(
+                                    0deg,
+                                    rgba(255, 255, 255, 1) 0%,
+                                    rgba(255, 255, 255, 0) 100%
+                                );
                             }
                         }
-    
-                        img{
+
+                        img {
                             width: 100%;
                             border-top-right-radius: 5px;
                             border-top-left-radius: 5px;
                             display: block;
                         }
-                        
-                        .moreButton{
+
+                        .moreButton {
                             background-color: white;
                             border-radius: 5px;
-                            &:hover{
+                            &:hover {
                                 cursor: pointer;
                             }
-                            a{
+                            a {
                                 text-align: center;
                                 display: block;
                                 padding: 1.2em 0;
@@ -133,10 +134,10 @@
                                 outline: none;
                                 color: black;
                                 text-decoration: none;
-                                &:hover{
+                                &:hover {
                                     cursor: pointer;
                                 }
-                                span{
+                                span {
                                     display: none;
                                 }
                             }
@@ -144,35 +145,39 @@
                     }
                 }
             }
-            .selectedProject{
+            .selectedProject {
                 position: relative;
-                .back{
-                    position: relative;
-                    top: -15px;
-                    right: 15px;
-                    border: none;
-                    font-size: $size2;
-                    border-bottom-right-radius: 5px;
-                    color: $accent1;
-                    text-decoration: none;
-                    font-size: $size1;
-                    &:hover{
-                        cursor: pointer;
+                .backBtn {
+                    display: inline-block;
+                    position: fixed;
+                    left: 0;
+                    bottom: 0;
+                    z-index: 100;
+                    a{
+                        color: black;
+                        background-color: white;
+                        padding: 11px;
+                        display: block;
+                        border-top-right-radius: 5px;
+                        box-shadow: 0px -2px 20px 1px #464646;
+                    }
+                    svg{
+                        font-size: $size4;
                     }
                 }
-                .imgCont{
+                .imgCont {
                     margin-top: 44px;
-                    img{
+                    img {
                         width: 100%;
                         margin-bottom: 22px;
                     }
                 }
-                p{
+                p {
                     line-height: 1.2em;
                 }
-                .links{
+                .links {
                     margin-top: 22px;
-                    a{
+                    a {
                         display: block;
                         margin-bottom: 11px;
                         color: $accent1;
@@ -181,39 +186,39 @@
                 }
             }
         }
-        @media screen and (min-width : $breakSmall){
-            .middleCard{
-                .projectsList{
-                    .project{
-                        .top{
-                            h3{
+        @media screen and (min-width: $breakSmall) {
+            .middleCard {
+                .projectsList {
+                    .project {
+                        .top {
+                            h3 {
                                 width: 60%;
                                 text-align: center;
                             }
                         }
-                        .bottom{
+                        .bottom {
                             clear: both;
                             overflow: auto;
-                            img{
+                            img {
                                 clear: both;
                                 width: 60%;
                                 float: right;
                                 margin: 0 0 15px 22px;
                                 border-radius: 0px;
                             }
-                            p{
+                            p {
                                 background: unset;
                                 max-height: unset;
                                 overflow: unset;
                                 padding: 0px;
-                                &:after{
+                                &:after {
                                     display: none;
                                 }
                             }
-                            .moreButton{
+                            .moreButton {
                                 background: none;
                                 float: left;
-                                a{
+                                a {
                                     background-color: $accent1;
                                     border-radius: 27px;
                                     width: 150px;
@@ -225,7 +230,7 @@
                                     align-items: center;
                                     padding: 10px;
                                     font-size: 16px;
-                                    span{
+                                    span {
                                         margin-left: 22px;
                                         display: block;
                                     }
@@ -236,34 +241,32 @@
                 }
             }
         }
-        @media screen and (min-width: $breakMedium){
-            .middleCard{
+        @media screen and (min-width: $breakMedium) {
+            .middleCard {
                 width: 80%;
-                .selectedProject{
+                .selectedProject {
                     padding: 0 5%;
-                    h1{
+                    h1 {
                         margin-bottom: 44px;
                     }
-                    .back{
+                    .back {
                         right: 44px;
-    
                     }
-                    .imgCont{
+                    .imgCont {
                         display: flex;
                         flex-wrap: wrap;
                         justify-content: space-evenly;
-                        img{
+                        img {
                             width: 45%;
                         }
                     }
                 }
             }
         }
-        @media screen and (min-width: $breakLarge){
-            .middleCard{
+        @media screen and (min-width: $breakLarge) {
+            .middleCard {
                 width: 800px;
             }
         }
     }
-
 }

@@ -80,7 +80,7 @@
     .buttonCont {
         display: flex;
         background-color: white;
-        transform: translate(calc(100% - 50px));
+        transform: translate(calc(100% - 42px));
         border-bottom-left-radius: 5px;
         align-items: center;
         transition: transform 0.3s linear;
@@ -98,7 +98,7 @@
                     a {
                         color: black;
                         text-decoration: none;
-                        padding: 11px 5px;
+                        padding: 7px 5px;
                         display: block;
                     }
                 }
@@ -107,7 +107,7 @@
         svg {
             font-size: $size4;
             box-sizing: content-box;
-            padding: 11px;
+            padding: 7px;
         }
     }
     .extndToggle{
