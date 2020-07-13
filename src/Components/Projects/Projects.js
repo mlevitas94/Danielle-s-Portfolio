@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import './Projects.scss'
 import { Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,8 +9,8 @@ import NavMobile from '../Nav/NavMobile'
 
 const Projects = (props) => {
     const { projects } = props
-
-    const projectList = projects.map((project, i) => {
+    const [selectedType, setType] = useState('')
+    const projectList = projects.filter(proj => proj.type === selectedType).map((project, i) => {
         return (
             <div key={i} className='project'>
                 <div className='top'>
@@ -31,22 +31,23 @@ const Projects = (props) => {
     const uniqueTypes = () => {
         let types = []
 
-        for(let i = 0; i < projects.length; i++){
-            
-            if(types.includes(projects[i].type)){
-                console.log('')
+        for (let i = 0; i < projects.length; i++) {
+
+            if (types.includes(projects[i].type)) {
                 continue
-            }else{
+            } else {
                 types.push(projects[i].type)
             }
         }
         return types
     }
 
+    console.log(selectedType)
+
     return (
         <div className='page'>
             <div className='preProjectCont'>
-                <NavMobile/>
+                <NavMobile />
                 <div className='projectsCont'>
                     <div className='middleCard'>
                         <NavDesk />
@@ -62,10 +63,17 @@ const Projects = (props) => {
                                                     :
                                                     <div className='catCont'>
                                                         <FontAwesomeIcon icon={faSortDown} />
-                                                        <select>
+                                                        <select onChange={(e) => {
+                                                            setType(e.target.value)
+                                                        }}>
                                                             {uniqueTypes().map((type, i) => {
+                                                                if (i === 0 && selectedType === '') {
+                                                                    setType(type)
+                                                                }
                                                                 return (
-                                                                    <option key={i} value={type}>{type}</option>
+                                                                    <option key={i} value={type}>
+                                                                        {type}
+                                                                    </option>
                                                                 )
                                                             })}
                                                         </select>
