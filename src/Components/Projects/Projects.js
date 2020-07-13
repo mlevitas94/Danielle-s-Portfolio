@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Projects.scss'
 import { Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -28,6 +28,21 @@ const Projects = (props) => {
         )
     })
 
+    const uniqueTypes = () => {
+        let types = []
+
+        for(let i = 0; i < projects.length; i++){
+            
+            if(types.includes(projects[i].type)){
+                console.log('')
+                continue
+            }else{
+                types.push(projects[i].type)
+            }
+        }
+        return types
+    }
+
     return (
         <div className='page'>
             <div className='preProjectCont'>
@@ -48,7 +63,11 @@ const Projects = (props) => {
                                                     <div className='catCont'>
                                                         <FontAwesomeIcon icon={faSortDown} />
                                                         <select>
-                                                            <option>Audits</option>
+                                                            {uniqueTypes().map((type, i) => {
+                                                                return (
+                                                                    <option key={i} value={type}>{type}</option>
+                                                                )
+                                                            })}
                                                         </select>
                                                     </div>
                                             }
