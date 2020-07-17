@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Projects.scss'
 import { Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,8 +8,7 @@ import NavDesk from '../Nav/NavDesk';
 import NavMobile from '../Nav/NavMobile'
 
 const Projects = (props) => {
-    const { projects } = props
-    const [selectedType, setType] = useState('')
+    const { projects, selectedProject, setSelectedProject , selectedType, setType} = props
     const projectList = projects.filter(proj => proj.type === selectedType).map((project, i) => {
         return (
             <div key={i} className='project'>
@@ -19,9 +18,9 @@ const Projects = (props) => {
                 </div>
                 <div className='bottom'>
                     <img src={project.images[0]} />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare. Rhoncus mattis rhoncus urna neque viverra. Mauris ultrices eros in cursus turpis massa tincidunt dui. Mattis vulputate enim nulla aliquet porttitor. Id eu nisl nunc mi ipsum faucibus vitae. Cras ornare arcu dui vivamus arcu felis bibendum. Urna et pharetra pharetra massa massa ultricies mi. Ut placerat orci nulla pellentesque dignissim enim. Lacinia quis vel eros donec ac odio tempor orci.</p>
+                    <p>{project.blurb}</p>
                     <div className='moreButton'>
-                        <Link to='/projects/projectname'>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>
+                        <Link onClick={() => {setSelectedProject(project)}} to={`/projects/${project.title}`}>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>
                     </div>
                 </div>
             </div>
@@ -42,8 +41,6 @@ const Projects = (props) => {
         return types
     }
 
-    console.log(selectedType)
-
     return (
         <div className='page'>
             <div className='preProjectCont'>
@@ -63,7 +60,7 @@ const Projects = (props) => {
                                                     :
                                                     <div className='catCont'>
                                                         <FontAwesomeIcon icon={faSortDown} />
-                                                        <select onChange={(e) => {
+                                                        <select value={selectedType} onChange={(e) => {
                                                             setType(e.target.value)
                                                         }}>
                                                             {uniqueTypes().map((type, i) => {
@@ -92,7 +89,8 @@ const Projects = (props) => {
                                     </>
                                 }} />
 
-                                <Route exact path='/projects/projectname' render={() => <Project />} />
+                                <Route exact path={`/projects/:title`} render={() => <Project selectedProject={selectedProject} setSelectedProject={setSelectedProject} projects={projects}/>} />
+
                             </>
                         }
                     </div>

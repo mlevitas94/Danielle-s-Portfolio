@@ -15,3 +15,11 @@ $breakSmall : 600px;
 $breakMedium : 750px;
 $breakLarge : 1000px;
 $breakXLarge: 1250px;
+
+.invalidPage{
+    font-family: $fontStyle1;
+    p{
+        margin-top: 25vh;
+        text-align: center;
+    }
+}

@@ -17,6 +17,8 @@ import Axios from 'axios';
 function App() {
   const [assets, setAssets] = useState({ images: 0, projects: false })
   const [projects, setProjects] = useState([])
+  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedType, setType] = useState('')
 
   useEffect(() => {
     document.querySelector('.lds-ring').style.opacity = '1'
@@ -49,7 +51,12 @@ function App() {
                     <Route exact path='/' component={Landing} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/contact' component={Contact} />
-                    <Route path='/projects' component={() => <Projects projects={projects} setProjects={setProjects} />} />
+                    <Route path='/projects' component={() => <Projects selectedType={selectedType} setType={setType} projects={projects} setProjects={setProjects} selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>}/>
+                    <Route render={() => {
+                      return (
+                        <div className='invalidPage'><p>Cannot find page</p></div>
+                      )
+                    }}/>
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
