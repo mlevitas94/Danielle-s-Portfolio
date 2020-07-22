@@ -18,7 +18,7 @@ const Projects = (props) => {
                 </div>
                 <div className='bottom'>
                     <img alt='Project Image' src={project.images[0]} />
-                    <p>{project.blurb}</p>
+                    <pre>{project.blurb}</pre>
                     <div className='moreButton'>
                         <Link onClick={() => {setSelectedProject(project)}} to={`/projects/${project.title}`}>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>
                     </div>

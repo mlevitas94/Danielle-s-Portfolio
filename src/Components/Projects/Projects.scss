@@ -105,13 +105,14 @@
                         }
                     }
                     .bottom {
-                        p {
+                        pre {
                             overflow: hidden;
                             position: relative;
                             line-height: 1.2em;
                             max-height: 7.2em;
                             background-color: white;
                             padding: 1.2em;
+                            white-space: pre-wrap;
                             &:after {
                                 content: "";
                                 position: absolute;
@@ -175,8 +176,9 @@
                         margin-bottom: 22px;
                     }
                 }
-                p {
+                pre {
                     line-height: 1.2em;
+                    white-space: pre-wrap;
                 }
                 .links {
                     margin-top: 22px;
@@ -209,7 +211,7 @@
                                 margin: 0 0 15px 22px;
                                 border-radius: 0px;
                             }
-                            p {
+                            pre {
                                 background: unset;
                                 max-height: unset;
                                 overflow: unset;

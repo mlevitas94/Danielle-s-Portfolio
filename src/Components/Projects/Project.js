@@ -25,6 +25,7 @@ const Project = (props) => {
         }
 
     }, [])
+    console.log(selectedProject)
     return (
         <div className='selectedProject'>
             {
@@ -36,7 +37,7 @@ const Project = (props) => {
                             <Link to='/projects'><FontAwesomeIcon icon={faArrowLeft} /></Link>
                         </div>
                         <h1>{selectedProject?.title}</h1>
-                        <p>{selectedProject?.blurb}</p>
+                        <pre>{selectedProject?.blurb}</pre>
                         {
                             selectedProject?.links.length < 0 ?
                                 null
