@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Projects.scss'
 import { Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,7 +17,7 @@ const Projects = (props) => {
                     <h3>{project.title}</h3>
                 </div>
                 <div className='bottom'>
-                    <img src={project.images[0]} />
+                    <img alt='Project Image' src={project.images[0]} />
                     <p>{project.blurb}</p>
                     <div className='moreButton'>
                         <Link onClick={() => {setSelectedProject(project)}} to={`/projects/${project.title}`}>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>

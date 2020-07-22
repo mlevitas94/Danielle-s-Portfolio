@@ -8,6 +8,24 @@
         overflow: auto;
         display: flex;
         align-items: safe center;
+        .backBtn {
+            display: inline-block;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 100;
+            a{
+                color: black;
+                background-color: white;
+                padding: 7px;
+                display: block;
+                border-top-right-radius: 5px;
+                box-shadow: 0px -2px 20px 1px #464646;
+            }
+            svg{
+                font-size: $size3;
+            }
+        }
         &:before {
             content: "";
             background: url("../../assets/park.jpg");
@@ -28,7 +46,7 @@
             background-color: #ffffffe3;
             padding: 0px 22px 22px 22px;
             border-radius: 5px;
-            margin: auto;
+            margin: 44px auto auto;
             h1 {
                 text-align: center;
                 margin-bottom: 22px;
@@ -147,23 +165,8 @@
             }
             .selectedProject {
                 position: relative;
-                .backBtn {
-                    display: inline-block;
-                    position: fixed;
-                    left: 0;
-                    bottom: 0;
-                    z-index: 100;
-                    a{
-                        color: black;
-                        background-color: white;
-                        padding: 7px;
-                        display: block;
-                        border-top-right-radius: 5px;
-                        box-shadow: 0px -2px 20px 1px #464646;
-                    }
-                    svg{
-                        font-size: $size3;
-                    }
+                .noProject{
+                    text-align: center;
                 }
                 .imgCont {
                     margin-top: 44px;
@@ -249,8 +252,17 @@
                     h1 {
                         margin-bottom: 44px;
                     }
-                    .back {
-                        right: 44px;
+                    .backBtn {
+                        bottom: unset;
+                        left: -90px;
+                        top: -22px;
+                        position: absolute;
+                        a{
+                            box-shadow: none;
+                            border-radius: 5px;
+                            position: fixed;
+                            // background: none;
+                        }
                     }
                     .imgCont {
                         display: flex;

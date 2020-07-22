@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Projects.scss'
-import testImg from '../../assets/park.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Link, withRouter } from 'react-router-dom'
 
 const Project = (props) => {
     const { projects, selectedProject, setSelectedProject } = props
+    const [noProject, setNoProject] = useState(false)
     useEffect(() => {
         const images = document.querySelectorAll('.imgCont img')
         if (images.length === 1) {
@@ -16,31 +16,53 @@ const Project = (props) => {
             const location = props.location.pathname.split('/')
             for (let i = 0; i < projects.length; i++) {
                 if (location[location.length - 1] === projects[i].title) {
-                    setSelectedProject(projects[i])
+                    return setSelectedProject(projects[i])
                 }
             }
-
+            if (selectedProject === null) {
+                setNoProject(true)
+            }
         }
 
     }, [])
     return (
         <div className='selectedProject'>
-            <div className='backBtn'>
-                <Link to='/projects'><FontAwesomeIcon icon={faArrowLeft} /></Link>
-            </div>
+            {
+                noProject ?
+                    <p className='noProject'>Project not found</p>
+                    :
+                    <>
+                        <div className='backBtn'>
+                            <Link to='/projects'><FontAwesomeIcon icon={faArrowLeft} /></Link>
+                        </div>
+                        <h1>{selectedProject?.title}</h1>
+                        <p>{selectedProject?.blurb}</p>
+                        {
+                            selectedProject?.links.length < 0 ?
+                                null
+                                :
+                                <div className='links'>
+                                    {
+                                        selectedProject?.links.map((link, i) => {
+                                            return (
+                                                    <a rel="noopener noreferrer" key={i} target='_blank' href={link.hyperlink}>{link.caption}</a>
+                                            )
+                                        })
+                                    }
+                                </div>
 
-            <h1>{selectedProject?.title}</h1>
-            <p>{selectedProject?.blurb}</p>
-            <div className='links'>
-                <a>Link here</a>
-                <a>Link here</a>
-            </div>
-            <div className='imgCont'>
-                <img src={testImg} />
-                <img src={testImg} />
-                <img src={testImg} />
-                <img src={testImg} />
-            </div>
+
+                        }
+                        <div className='imgCont'>
+                            {
+                                selectedProject?.images.map((img, i )=> {
+                                    return (
+                                        <img alt='Project Image' key={i} src={img} />
+                                    )
+                                })}
+                        </div>
+                    </>
+            }
         </div>
     )
 }

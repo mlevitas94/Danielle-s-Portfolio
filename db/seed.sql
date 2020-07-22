@@ -13,3 +13,7 @@ insert into deprojects(
 
 )
 
+update deprojects 
+set images = '{https://thomsimages.s3-us-west-1.amazonaws.com/newsletter1.png, https://thomsimages.s3-us-west-1.amazonaws.com/newsletter2.png, https://thomsimages.s3-us-west-1.amazonaws.com/newsletter3.png, https://thomsimages.s3-us-west-1.amazonaws.com/newsletter4.png, https://thomsimages.s3-us-west-1.amazonaws.com/newsletter5.png, https://thomsimages.s3-us-west-1.amazonaws.com/newsletter6.png, https://thomsimages.s3-us-west-1.amazonaws.com/newsletter7.png}'
+where type = 'Newsletters'
+

@@ -7,12 +7,8 @@ import './Nav.scss'
 const NavMobile = () => {
     return (
         <div className='navMobile'>
-            <div className='buttonCont' onMouseLeave={(e) => {
-                document.querySelector('.buttonCont').classList.remove('extndToggle')
-            }}
-            onMouseEnter={(e) => {
-                document.querySelector('.buttonCont').classList.remove('extndToggle')
-            }}>
+            <div className='buttonCont'>
+            
                 <FontAwesomeIcon icon={faBars} 
                 onClick={(e) => {
                     document.querySelector('.buttonCont').classList.toggle('extndToggle')
