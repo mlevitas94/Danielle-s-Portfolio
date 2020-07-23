@@ -1,9 +1,10 @@
 import React from 'react'
 import './PhotoBy.scss'
 
-const PhotoBy = () => {
+const PhotoBy = (props) => {
+    const {text} = props
     return (
-        <p className='photoBy'>Photos by Danielle Elmers</p>
+        <p className='photoBy'>{!text ? 'Photo by Danielle Elmers' : text}</p>
     )
 }
 

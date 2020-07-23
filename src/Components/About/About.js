@@ -14,7 +14,7 @@ const About = () => {
                         <NavDesk />
                         <div className='imgSide'>
                             <h1>About Me</h1>
-                            <div className='image'></div>
+                            <div className='image'><PhotoBy text='Photo by Zack Chan'/></div>
                         </div>
                         <div className='contentSide'>
                             <div className='blur'></div>

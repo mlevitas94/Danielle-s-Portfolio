@@ -20,7 +20,6 @@ const Contact = () => {
                     <div className='top'>
                         <h1>Contact Me</h1>
                         <div className='infoSplit'>
-                            <p className='info'>Well, hopefully by the time you make it to this page, you already perused my bodies of work and are so impressed that you want to contact me to either talk about writing, work together on a project, or even offer me a job (the dream!). By contacting me, you will get quality copywriting and editing work, a dedicated English language connoisseur, and a few awkward jokes. Drop me a message today!</p>
                             <div className='links'>
                                 <p className='email'><a href='mailto:danielleelmers@gmail.com'>danielleelmers@gmail.com</a></p>
                                 <ul>
@@ -29,6 +28,7 @@ const Contact = () => {
                                     <li><a href='https://www.instagram.com/call_me_dani_/' target='_blank' rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram}/></a></li>
                                 </ul>
                             </div>
+                            <p className='info'>Well, hopefully by the time you make it to this page, you already perused my bodies of work and are so impressed that you want to contact me to either talk about writing, work together on a project, or even offer me a job (the dream!). By contacting me, you will get quality copywriting and editing work, a dedicated English language connoisseur, and a few awkward jokes. Drop me a message today!</p>
                         </div>
                     </div>
                     <form>

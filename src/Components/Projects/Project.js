@@ -25,7 +25,6 @@ const Project = (props) => {
         }
 
     }, [])
-    console.log(selectedProject)
     return (
         <div className='selectedProject'>
             {
@@ -39,12 +38,12 @@ const Project = (props) => {
                         <h1>{selectedProject?.title}</h1>
                         <pre>{selectedProject?.blurb}</pre>
                         {
-                            selectedProject?.links.length < 0 ?
+                           selectedProject?.links === null || selectedProject?.links.length < 0 ?
                                 null
                                 :
                                 <div className='links'>
                                     {
-                                        selectedProject?.links.map((link, i) => {
+                                        selectedProject?.map((link, i) => {
                                             return (
                                                     <a rel="noopener noreferrer" key={i} target='_blank' href={link.hyperlink}>{link.caption}</a>
                                             )

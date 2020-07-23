@@ -216,9 +216,9 @@
                                 max-height: unset;
                                 overflow: unset;
                                 padding: 0px;
-                                // &:after {
-                                //     display: none;
-                                // }
+                                &:after {
+                                    display: none;
+                                }
                             }
                         }
                         .moreButton {

@@ -155,14 +155,15 @@
                     margin-bottom: 66px;
                 }
                 .infoSplit{
-                    display: flex;
-                    justify-content: space-between;
+                    // display: flex;
+                    // justify-content: space-between;
                     .info{
-                        width: 60%;
-                        margin-right: 11px;
+                        // width: 60%;
+                        // margin-right: 11px;
                     }
                     .links{
                         float: right;
+                        margin-left : 22px;
                         ul{
                             display: flex;
                             justify-content: space-between;
