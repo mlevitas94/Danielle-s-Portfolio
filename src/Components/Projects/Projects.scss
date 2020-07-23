@@ -136,29 +136,28 @@
                             border-top-left-radius: 5px;
                             display: block;
                         }
-
-                        .moreButton {
-                            background-color: white;
-                            border-radius: 5px;
+                    }
+                    .moreButton {
+                        background-color: white;
+                        border-radius: 5px;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                        a {
+                            text-align: center;
+                            display: block;
+                            padding: 1.2em 0;
+                            background-color: transparent;
+                            border: none;
+                            width: 100%;
+                            outline: none;
+                            color: black;
+                            text-decoration: none;
                             &:hover {
                                 cursor: pointer;
                             }
-                            a {
-                                text-align: center;
-                                display: block;
-                                padding: 1.2em 0;
-                                background-color: transparent;
-                                border: none;
-                                width: 100%;
-                                outline: none;
-                                color: black;
-                                text-decoration: none;
-                                &:hover {
-                                    cursor: pointer;
-                                }
-                                span {
-                                    display: none;
-                                }
+                            span {
+                                display: none;
                             }
                         }
                     }
@@ -203,7 +202,8 @@
                         }
                         .bottom {
                             clear: both;
-                            overflow: auto;
+                            overflow: hidden;
+                            max-height: 25em;
                             img {
                                 clear: both;
                                 width: 60%;
@@ -216,29 +216,29 @@
                                 max-height: unset;
                                 overflow: unset;
                                 padding: 0px;
-                                &:after {
-                                    display: none;
-                                }
+                                // &:after {
+                                //     display: none;
+                                // }
                             }
-                            .moreButton {
-                                background: none;
-                                float: left;
-                                a {
-                                    background-color: $accent1;
-                                    border-radius: 27px;
-                                    width: 150px;
-                                    margin-top: 22px;
-                                    color: white;
-                                    position: relative;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    padding: 10px;
-                                    font-size: 16px;
-                                    span {
-                                        margin-left: 22px;
-                                        display: block;
-                                    }
+                        }
+                        .moreButton {
+                            background: none;
+                            a {
+                                background-color: $accent1;
+                                border-radius: 27px;
+                                width: 150px;
+                                margin-top: 22px;
+                                color: white;
+                                position: relative;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 10px;
+                                font-size: 16px;
+                                text-decoration: none;
+                                span {
+                                    margin-left: 22px;
+                                    display: block;
                                 }
                             }
                         }

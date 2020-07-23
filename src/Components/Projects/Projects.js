@@ -8,7 +8,7 @@ import NavDesk from '../Nav/NavDesk';
 import NavMobile from '../Nav/NavMobile'
 
 const Projects = (props) => {
-    const { projects, selectedProject, setSelectedProject , selectedType, setType} = props
+    const { projects, selectedProject, setSelectedProject, selectedType, setType } = props
     const projectList = projects.filter(proj => proj.type === selectedType).map((project, i) => {
         return (
             <div key={i} className='project'>
@@ -19,9 +19,9 @@ const Projects = (props) => {
                 <div className='bottom'>
                     <img alt='Project Image' src={project.images[0]} />
                     <pre>{project.blurb}</pre>
-                    <div className='moreButton'>
-                        <Link onClick={() => {setSelectedProject(project)}} to={`/projects/${project.title}`}>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>
-                    </div>
+                </div>
+                <div className='moreButton'>
+                    <Link onClick={() => { setSelectedProject(project) }} to={`/projects/${project.title}`}>View More <span><FontAwesomeIcon icon={faArrowCircleRight} /></span></Link>
                 </div>
             </div>
         )
@@ -89,7 +89,7 @@ const Projects = (props) => {
                                     </>
                                 }} />
 
-                                <Route exact path={`/projects/:title`} render={() => <Project selectedProject={selectedProject} setSelectedProject={setSelectedProject} projects={projects}/>} />
+                                <Route exact path={`/projects/:title`} render={() => <Project selectedProject={selectedProject} setSelectedProject={setSelectedProject} projects={projects} />} />
 
                             </>
                         }
