@@ -33,11 +33,21 @@ function App() {
   return (
     <div className="App">
       <div id='preload'>
-        <img src={LandingBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}}  alt='preload' />
-        <img src={AboutBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
-        <img src={AboutPortrait} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
-        <img src={ContactBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
-        <img src={ProjectsBackground} onLoad={() => {setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
+        <img src={LandingBackground} onLoad={() => {
+          console.log('loaded')
+          setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}}  alt='preload' />
+        <img src={AboutBackground} onLoad={() => {
+          console.log('loaded')
+          setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
+        <img src={AboutPortrait} onLoad={() => {
+          console.log('loaded')
+          setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
+        <img src={ContactBackground} onLoad={() => {
+          console.log('loaded')
+          setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
+        <img src={ProjectsBackground} onLoad={() => {
+          console.log('loaded')
+          setAssets((prevState) => {return {...prevState, images : prevState.images + 1}})}} alt='preload' />
 
       </div>
       {

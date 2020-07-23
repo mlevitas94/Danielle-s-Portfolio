@@ -58,8 +58,11 @@ table {
 
 /* preload styles for images and loading animation */
 
-#preload{
-	display: none;
+#preload img{
+	/* display: none; */
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
 }
 .lds-ring {
 	display: block;
