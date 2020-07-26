@@ -1,83 +1,115 @@
-@import '../../Variables.scss';
+@import "../../Variables.scss";
 
-.contactCont{
+.contactCont {
     font-family: $fontStyle1;
     height: 100%;
     line-height: 1.5rem;
     overflow: auto;
     z-index: 1;
-    &:before{
+    &:before {
         content: "";
-        background: url('../../assets/tree.jpg'); 
+        background: url("../../assets/tree.jpg");
         background-size: cover;
         background-position: center;
         position: absolute;
         left: 0px;
         right: 0px;
-        top: 0px; 
+        top: 0px;
         bottom: 0px;
         filter: blur(5px);
         z-index: -1;
         transform: scale(1.1);
     }
-    .content{
+    .content {
         padding: 15vh 22px 44px 22px;
         z-index: 10;
         position: relative;
         background-color: #ffffffeb;
-        .top{
-            h1{
+        .top {
+            h1 {
                 margin: 0 0 44px 0;
                 font-weight: bolder;
                 font-size: $size4;
                 font-family: $fontStyle2;
             }
-            p{
+            p {
                 margin-bottom: 44px;
                 font-size: $size1;
-                span{
+                span {
                     color: $accent1;
                 }
             }
-            ul{
+            ul {
                 display: flex;
                 margin-bottom: 44px;
-                li{
+                li {
                     margin-right: 22px;
                     font-size: $size3;
-                    a{
+                    a {
                         color: $accent1;
-
                     }
                 }
             }
-            .email{
+            .email {
                 margin-bottom: 22px;
-                a{
+                a {
                     color: $accent1;
-
                 }
             }
-
         }
-        form{
-            button{
+        form {
+            .errorBlank {
+                text-align: center;
+                color: red;
+            }
+            .messageStatus {
+                margin: 0 auto;
+                width: 200px;
+                z-index: 10;
+                text-align: center;
+                border: 1px solid $accent1;
+                padding: 11px 0;
+                border-radius: 10px;
+                background: white;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -22px;
+                box-shadow: 0px 0px 20px 0px #9c9c9c;
+                transform: translate(0px 0px);
+                opacity: 0;
+                transition: opacity 0.2s linear, transform 0.2s linear;
+                &:hover{
+                    cursor: default;
+                }
+            }
+            button {
                 display: block;
-                margin: 22px auto 0  auto;
+                margin: 22px auto 0 auto;
                 background: $accent1;
                 border: none;
                 font-size: $size2;
                 padding: 5px 15px;
                 border-radius: 20px;
                 color: white;
-                &:hover{
+                &:disabled{
+                    background-color: grey;
+                    &:hover{
+                        cursor: default;
+                    }
+                }
+                &:hover {
                     cursor: pointer;
                 }
-
             }
-            .inputCont{
+            .inputCont {
                 position: relative;
-                label{
+                p {
+                    position: absolute;
+                    color: red;
+                    margin-top: 7px;
+                }
+                label {
                     position: absolute;
                     left: 5px;
                     bottom: 5px;
@@ -85,7 +117,7 @@
                     transition: transform 0.2s linear, color 0.2s linear;
                     z-index: 0;
                 }
-                input{
+                input {
                     padding: 5px;
                     font-size: 1rem;
                     border-top: none;
@@ -95,15 +127,15 @@
                     background: transparent;
                     position: relative;
                     z-index: 1;
-                    
-                    &:focus{
+
+                    &:focus {
                         outline: none;
-                        label{
+                        label {
                             color: red;
                         }
                     }
                 }
-                textarea{
+                textarea {
                     width: 100%;
                     resize: vertical;
                     padding: 5px;
@@ -113,72 +145,70 @@
                     background: transparent;
                     position: relative;
                     z-index: 1;
-                    &:focus{
+                    &:focus {
                         outline: none;
                     }
                 }
-                .inputFocused{
+                .inputFocused {
                     transform: translate(0px, -24px) scale(0.9);
                     color: black;
                 }
-
             }
-            .message{
-                label{
+            .message {
+                label {
                     top: 48px;
                     bottom: unset;
                 }
             }
-            .topForm{
+            .topForm {
                 display: flex;
                 justify-content: space-between;
                 flex-direction: column;
                 margin-bottom: 22px;
-                div{
+                div {
                     width: 100%;
-                    input{
+                    input {
                         width: 100%;
                     }
                 }
-                .name{
+                .name {
                     margin-bottom: 44px;
                 }
             }
         }
     }
-    
-    @media screen and (min-width : $breakSmall){
-        .content{
-            .top{
-                h1{
+
+    @media screen and (min-width: $breakSmall) {
+        .content {
+            .top {
+                h1 {
                     text-align: center;
                     margin-bottom: 66px;
                 }
-                .infoSplit{
+                .infoSplit {
                     // display: flex;
                     // justify-content: space-between;
-                    .info{
+                    .info {
                         // width: 60%;
                         // margin-right: 11px;
                     }
-                    .links{
+                    .links {
                         float: right;
-                        margin-left : 22px;
-                        ul{
+                        margin-left: 22px;
+                        ul {
                             display: flex;
                             justify-content: space-between;
-                            li{
+                            li {
                                 margin: 0;
                             }
                         }
                     }
                 }
-
             }
-            form{
-                .topForm{
+            form {
+                .topForm {
                     flex-direction: row;
-                    .inputCont{
+                    .inputCont {
                         width: 45%;
                         margin: 0;
                     }
@@ -186,11 +216,11 @@
             }
         }
     }
-    @media screen and (min-width : $breakMedium){
+    @media screen and (min-width: $breakMedium) {
         display: flex;
         align-items: safe center;
         // background-image: url('../../assets/tree.jpg');
-        .content{
+        .content {
             width: 80%;
             margin: auto;
             padding: 0px 44px 44px 44px;
@@ -200,37 +230,34 @@
             min-height: min-content;
             background-color: #ffffffeb;
             z-index: unset;
-            &:before{
+            &:before {
                 content: "";
-                background: url('../../assets/tree.jpg'); 
+                background: url("../../assets/tree.jpg");
                 background-attachment: fixed;
                 background-size: cover;
                 background-position: center;
                 position: absolute;
                 left: 0px;
                 right: 0px;
-                top: 0px; 
+                top: 0px;
                 bottom: 0px;
                 filter: blur(5px);
                 z-index: -1;
             }
-            .top{
-                h1{
+            .top {
+                h1 {
                     margin-top: 44px;
                 }
-       
-                .infoSplit{
+
+                .infoSplit {
                     justify-content: space-around;
-
                 }
-
             }
         }
     }
-    @media screen and (min-width: $breakXLarge){
-        .content{
+    @media screen and (min-width: $breakXLarge) {
+        .content {
             width: 1000px;
         }
     }
-    
 }
