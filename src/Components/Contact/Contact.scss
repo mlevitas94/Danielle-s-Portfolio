@@ -127,6 +127,7 @@
                     background: transparent;
                     position: relative;
                     z-index: 1;
+                    -webkit-appearance: none;
 
                     &:focus {
                         outline: none;
@@ -145,6 +146,7 @@
                     background: transparent;
                     position: relative;
                     z-index: 1;
+                    -webkit-appearance: none;
                     &:focus {
                         outline: none;
                     }
