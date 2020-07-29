@@ -116,6 +116,7 @@
                     color: #6f6f6f;
                     transition: transform 0.2s linear, color 0.2s linear;
                     z-index: 0;
+                    
                 }
                 input {
                     padding: 5px;
@@ -132,9 +133,7 @@
 
                     &:focus {
                         outline: none;
-                        label {
-                            color: red;
-                        }
+                        border-bottom: 1px solid $accent1;
                     }
                 }
                 textarea {
@@ -151,6 +150,7 @@
                     border-radius: 0;
                     &:focus {
                         outline: none;
+                        border-bottom: 1px solid $accent1;
                     }
                 }
                 .inputFocused {

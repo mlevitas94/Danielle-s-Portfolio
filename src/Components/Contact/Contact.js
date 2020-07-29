@@ -95,7 +95,7 @@ const Contact = () => {
                         <div className='topForm'>
                             <div className='inputCont name'>
                                 <label>Name</label>
-                                <input value={inputs.name}
+                                <input type='text' name='name' value={inputs.name} maxLength={100}
                                     onFocus={() => { document.querySelector('.topForm .name label').classList.add('inputFocused') }}
                                     onBlur={(e) => {
                                         if (!e.target.value) {
@@ -107,7 +107,7 @@ const Contact = () => {
                             </div>
                             <div className='inputCont email'>
                                 <label>Email</label>
-                                <input value={inputs.email}
+                                <input type='email' name='email' value={inputs.email} maxLength={100}
                                     onFocus={() => { document.querySelector('.topForm .email label').classList.add('inputFocused') }}
                                     onBlur={(e) => {
                                         if (!e.target.value) {
@@ -121,7 +121,7 @@ const Contact = () => {
                         </div>
                         <div className='inputCont message'>
                             <label>Message</label>
-                            <textarea rows='3' value={inputs.message}
+                            <textarea rows='3' value={inputs.message} maxLength={2000}
                                 onFocus={() => { document.querySelector('.message label').classList.add('inputFocused') }}
                                 onBlur={(e) => {
                                     if (!e.target.value) {
