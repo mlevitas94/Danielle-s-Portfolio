@@ -130,10 +130,11 @@
                     z-index: 1;
                     border-radius: 0;
                     -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
 
                     &:focus {
                         outline: none;
-                        border-bottom: 1px solid $accent1;
                     }
                 }
                 textarea {
@@ -147,10 +148,11 @@
                     position: relative;
                     z-index: 1;
                     -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
                     border-radius: 0;
                     &:focus {
                         outline: none;
-                        border-bottom: 1px solid $accent1;
                     }
                 }
                 .inputFocused {
