@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './Projects.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faExpand } from '@fortawesome/free-solid-svg-icons'
 import { Link, withRouter } from 'react-router-dom'
+import PhotoLarge from '../../assets/Components/PhotoBy/PhotoLarge'
 
 const Project = (props) => {
     const { projects, selectedProject, setSelectedProject } = props
     const [noProject, setNoProject] = useState(false)
+    const [selectedImage, setSelectedImage] = useState({
+        imgSet: true,
+        imgSrc: null
+    })
     useEffect(() => {
         const images = document.querySelectorAll('.imgCont img')
         if (images.length === 1) {
@@ -32,20 +37,25 @@ const Project = (props) => {
                     <p className='noProject'>Project not found</p>
                     :
                     <>
+                        {selectedImage.imgSet ?
+                            <PhotoLarge src={selectedImage.imgSrc} setSelectedImage={setSelectedImage}/>
+                            :
+                            null
+                        }
                         <div className='backBtn'>
                             <Link to='/projects'><FontAwesomeIcon icon={faArrowLeft} /></Link>
                         </div>
                         <h1>{selectedProject?.title}</h1>
                         <pre>{selectedProject?.blurb}</pre>
                         {
-                           selectedProject?.links === null || selectedProject?.links.length < 0 ?
+                            selectedProject?.links === null || selectedProject?.links.length < 0 ?
                                 null
                                 :
                                 <div className='links'>
                                     {
                                         selectedProject?.map((link, i) => {
                                             return (
-                                                    <a rel="noopener noreferrer" key={i} target='_blank' href={link.hyperlink}>{link.caption}</a>
+                                                <a rel="noopener noreferrer" key={i} target='_blank' href={link.hyperlink}>{link.caption}</a>
                                             )
                                         })
                                     }
@@ -55,9 +65,14 @@ const Project = (props) => {
                         }
                         <div className='imgCont'>
                             {
-                                selectedProject?.images.map((img, i )=> {
+                                selectedProject?.images.map((img, i) => {
                                     return (
-                                        <img alt='Project Image' key={i} src={img} />
+                                        <div key={i}>
+                                            <span>
+                                                <FontAwesomeIcon icon={faExpand} />
+                                            </span>
+                                            <img alt='Project Image' src={img} />
+                                        </div>
                                     )
                                 })}
                         </div>
