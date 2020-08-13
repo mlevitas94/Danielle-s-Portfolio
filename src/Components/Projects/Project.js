@@ -8,10 +8,7 @@ import PhotoLarge from '../../assets/Components/PhotoBy/PhotoLarge'
 const Project = (props) => {
     const { projects, selectedProject, setSelectedProject } = props
     const [noProject, setNoProject] = useState(false)
-    const [selectedImage, setSelectedImage] = useState({
-        imgSet: true,
-        imgSrc: null
-    })
+    const [selectedImage, setSelectedImage] = useState(null)
     useEffect(() => {
         const images = document.querySelectorAll('.imgCont img')
         if (images.length === 1) {
@@ -30,6 +27,7 @@ const Project = (props) => {
         }
 
     }, [])
+    console.log(selectedImage)
     return (
         <div className='selectedProject'>
             {
@@ -37,8 +35,8 @@ const Project = (props) => {
                     <p className='noProject'>Project not found</p>
                     :
                     <>
-                        {selectedImage.imgSet ?
-                            <PhotoLarge src={selectedImage.imgSrc} setSelectedImage={setSelectedImage}/>
+                        {selectedImage !== null ?
+                            <PhotoLarge selectedImage={selectedImage} setSelectedImage={setSelectedImage}/>
                             :
                             null
                         }
@@ -71,7 +69,7 @@ const Project = (props) => {
                                             <span>
                                                 <FontAwesomeIcon icon={faExpand} />
                                             </span>
-                                            <img alt='Project Image' src={img} />
+                                            <img onClick={() => {setSelectedImage(img)}} alt='Project Image' src={img} />
                                         </div>
                                     )
                                 })}

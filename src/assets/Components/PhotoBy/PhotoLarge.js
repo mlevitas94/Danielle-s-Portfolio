@@ -1,15 +1,14 @@
 import React from 'react'
-import TestImg from '../../../assets/park.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const PhotoLarge = (props) => {
-    const { image, setSelectedImage } = props
+    const { selectedImage, setSelectedImage } = props
     return (
         <div className='photoLarge'>
             <div>
-                <span onClick={() => { setSelectedImage({ imgSet: false, imgSrc: null }) }}><FontAwesomeIcon icon={faTimes} /></span>
-                <img src={TestImg} alt='enlarged project photo' />
+                <span onClick={() => { setSelectedImage(null) }}><FontAwesomeIcon icon={faTimes} /></span>
+                <img src={selectedImage} alt='enlarged project photo' />
 
             </div>
         </div>
