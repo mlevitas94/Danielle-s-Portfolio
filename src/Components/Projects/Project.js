@@ -66,7 +66,7 @@ const Project = (props) => {
                                 selectedProject?.images.map((img, i) => {
                                     return (
                                         <div key={i}>
-                                            <span>
+                                            <span onClick={() => {setSelectedImage(img)}}>
                                                 <FontAwesomeIcon icon={faExpand} />
                                             </span>
                                             <img onClick={() => {setSelectedImage(img)}} alt='Project Image' src={img} />

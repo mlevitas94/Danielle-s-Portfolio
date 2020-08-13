@@ -221,6 +221,10 @@
                             position: absolute;
                             bottom: 7px;
                             right: 7px;
+                            border-radius: 50%;
+                            background-color: #f3f3f380;
+                            border: 1px solid #868686;
+                            padding: 7px;
                             svg {
                                 font-size: 17px;
                             }
@@ -233,7 +237,7 @@
                             cursor: pointer;
                         }
                         &:hover span {
-                            transform: scale(1.4) translate(-7px, -7px);
+                            transform: scale(1.2) translate(-7px, -7px);
                         }
                     }
                 }
@@ -340,6 +344,7 @@
                         flex-wrap: wrap;
                         justify-content: space-evenly;
                         div {
+                            height: fit-content;
                             width: 45%;
                             display: inline-block;
                         }
