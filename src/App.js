@@ -20,6 +20,7 @@ function App() {
   const [projects, setProjects] = useState([])
   const [selectedProject, setSelectedProject] = useState(null)
   const [selectedType, setType] = useState('')
+  const [admin, setAdmin] = useState(false)
 
   useEffect(() => {
     document.querySelector('.lds-ring').style.opacity = '1'
@@ -56,7 +57,7 @@ function App() {
                   <Switch location={location}>
                     <Route exact path='/' component={Landing} />
                     <Route exact path='/about' component={About} />
-                    <Route path='/admin' component={Admin}/>
+                    <Route path='/admin' component={() => <Admin admin={admin} setAdmin={setAdmin}/>}/>
                     <Route exact path='/contact' component={Contact} />
                     <Route path='/projects' component={() => <Projects selectedType={selectedType} setType={setType} projects={projects} setProjects={setProjects} selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>}/>
                     <Route render={() => {

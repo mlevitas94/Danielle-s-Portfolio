@@ -3,7 +3,7 @@ import './Admin.scss'
 import Axios from 'axios'
 
 const Login = (props) => {
-    const {admin, setAdmin} = props
+    const {setAdmin} = props
     const [login, setLogin] = useState({
         username : '',
         password:''
@@ -12,7 +12,12 @@ const Login = (props) => {
     const Login = () => {
         const {username, password} = login
 
-        Axios.post('/login', {username, password}).then(res => {
+        Axios.post('/login/', {username, password}).then(res => {
+            if(res.data === true){
+               setAdmin(true)
+            }else{
+                console.log('not logged')
+            }
 
         }).catch(err => {
             console.log(err)
@@ -34,7 +39,7 @@ const Login = (props) => {
                         setLogin({...login, password : e.target.value})
                     }}/>
                 </div>
-                <button>Log In</button>
+                <button onClick={() => {Login()}}>Log In</button>
             </div>
         </div>
     )

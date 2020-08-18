@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 module.exports = {
     login: async (req, res) => {
         const db = req.app.get('db')
+        const { session } = req
         
         const {username, password} = req.body
 
@@ -20,6 +21,9 @@ module.exports = {
             const authedAdmin = bcrypt.compareSync(password, user.password)
 
             if(authedAdmin){
+                session.admin = {
+                    authed: true
+                }
                 return res.status(200).send(true)
             }else{
                 return res.status(401).send('Invalid username or Password')
@@ -49,5 +53,14 @@ module.exports = {
             return res.status(500).send(err)
         }
 
+    },
+
+    checkAdmin : async (req,res, next) => {
+        const { session } = req;
+        if (!session.admin) {
+            return res.sendStatus(401)
+        } else {
+            next()
+        }
     }
 }

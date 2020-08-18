@@ -4,10 +4,18 @@ const nodemailer = require("nodemailer");
 const massive = require('massive');
 const public = require('./publicendpoints/public')
 const admin = require('./adminEndpoints/admin')
+const session = require('express-session')
 
-const {SERVER_PORT, DB_URL, user, pass} = process.env
+const {SERVER_PORT, DB_URL, user, pass, SESSION_SECRET} = process.env
 const path = require('path')
 const app = express();
+
+app.use(
+  session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  }))
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -22,7 +30,7 @@ app.get('/getprojects', public.getProjects)
 
 
 //admin endpoints
-app.post('/createadmin/',admin.createAdmin)
+app.post('/createadmin/', admin.checkAdmin, admin.createAdmin)
 app.post('/login/', admin.login)
 
 
