@@ -27,7 +27,6 @@ const Project = (props) => {
         }
 
     }, [])
-    console.log(selectedImage)
     return (
         <div className='selectedProject'>
             {
@@ -66,6 +65,9 @@ const Project = (props) => {
                                 selectedProject?.images.map((img, i) => {
                                     return (
                                         <div key={i}>
+                                            <num>
+                                                {i + 1}
+                                            </num>
                                             <span onClick={() => {setSelectedImage(img)}}>
                                                 <FontAwesomeIcon icon={faExpand} />
                                             </span>

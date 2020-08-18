@@ -216,17 +216,22 @@
                         position: relative;
                         margin-bottom: 22px;
                         transition: transform 0.2s linear;
+                        num{
+                            margin-bottom: 11px;
+                            display: block;
+                        }
                         span {
                             transition: transform 0.2s linear;
                             position: absolute;
                             bottom: 7px;
                             right: 7px;
-                            border-radius: 50%;
-                            background-color: #f3f3f380;
-                            border: 1px solid #868686;
                             padding: 7px;
                             svg {
                                 font-size: 17px;
+                                path {
+                                    stroke: white;
+                                    stroke-width: 15px;
+                                }
                             }
                         }
                         img {

@@ -4,6 +4,7 @@ import Landing from './Components/Landing/Landing'
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import Projects from './Components/Projects/Projects';
+import Admin from './Components/Admin/Admin'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import AboutBackground from './assets/DSC_0175.jpg'
 import AboutPortrait from './Components/About/assets/portrait.jpg'
@@ -55,6 +56,7 @@ function App() {
                   <Switch location={location}>
                     <Route exact path='/' component={Landing} />
                     <Route exact path='/about' component={About} />
+                    <Route path='/admin' component={Admin}/>
                     <Route exact path='/contact' component={Contact} />
                     <Route path='/projects' component={() => <Projects selectedType={selectedType} setType={setType} projects={projects} setProjects={setProjects} selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>}/>
                     <Route render={() => {
