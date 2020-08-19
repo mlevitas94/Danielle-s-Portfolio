@@ -55,6 +55,15 @@ module.exports = {
 
     },
 
+    getAdmin : async (req,res) => {
+        const { session } = req;
+        if (!session.admin) {
+            return res.sendStatus(401)
+        } else {
+            return res.sendStatus(200)
+        }
+    },
+
     checkAdmin : async (req,res, next) => {
         const { session } = req;
         if (!session.admin) {

@@ -32,6 +32,7 @@ app.get('/getprojects', public.getProjects)
 //admin endpoints
 app.post('/createadmin/', admin.checkAdmin, admin.createAdmin)
 app.post('/login/', admin.login)
+app.get('/getadmin/', admin.getAdmin)
 
 
 app.post('/email', async (req,res) => {
