@@ -2,10 +2,10 @@ import React from 'react'
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from './Login';
 import Logged from './Logged';
+import Axios from 'axios';
 
 const Admin = (props) => {
-    const {admin, setAdmin} = props
-
+    const {admin, setAdmin, projects} = props
 
     return (
         <div className='page'>
@@ -15,7 +15,7 @@ const Admin = (props) => {
                         {admin ? <Redirect to='/admin/logged' /> : <Login admin={admin} setAdmin={setAdmin} />}
                     </Route>
                     <Route exact path='/admin/logged'>
-                        {!admin ? <Redirect to='/admin'/> : <Logged admin={admin} setAdmin={setAdmin} />}
+                        {!admin ? <Redirect to='/admin'/> : <Logged admin={admin} setAdmin={setAdmin} projects={projects} />}
                     </Route>
                 </Switch>
             </div>

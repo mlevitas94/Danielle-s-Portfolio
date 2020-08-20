@@ -6,6 +6,7 @@ import { faSortDown, faArrowCircleRight } from '@fortawesome/free-solid-svg-icon
 import Project from './Project'
 import NavDesk from '../Nav/NavDesk';
 import NavMobile from '../Nav/NavMobile'
+import {uniqueTypes} from '../../assets/Functions'
 
 const Projects = (props) => {
     const { projects, selectedProject, setSelectedProject, selectedType, setType } = props
@@ -27,19 +28,6 @@ const Projects = (props) => {
         )
     })
 
-    const uniqueTypes = () => {
-        let types = []
-
-        for (let i = 0; i < projects.length; i++) {
-
-            if (types.includes(projects[i].type)) {
-                continue
-            } else {
-                types.push(projects[i].type)
-            }
-        }
-        return types
-    }
 
     return (
         <div className='page'>
@@ -63,7 +51,7 @@ const Projects = (props) => {
                                                         <select value={selectedType} onChange={(e) => {
                                                             setType(e.target.value)
                                                         }}>
-                                                            {uniqueTypes().map((type, i) => {
+                                                            {uniqueTypes(projects).map((type, i) => {
                                                                 if (i === 0 && selectedType === '') {
                                                                     setType(type)
                                                                 }

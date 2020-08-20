@@ -29,7 +29,7 @@ module.exports = {
                 return res.status(401).send('Invalid username or Password')
             }
         }catch(err){
-            return res.status(500).send(err)
+            return res.status(500).send('Server Error')
         }
 
     },
