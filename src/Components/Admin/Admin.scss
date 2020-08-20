@@ -54,13 +54,16 @@
         }
     }
     .loggedCont{
+        padding: 44px 0;
+        background-color: #dcdcdc;
         .controlBox{
             max-width: 500px;
-            margin: 44px auto;
+            margin: 0 auto;
             padding: 44px;
             border: 1px solid #b3b3b3;
             box-shadow: 0px 0px 30px -10px #656565;
             border-radius: 10px;
+            background-color: white;
             h2{
                 font-size: $size1;
                 margin-bottom: 44px;
@@ -69,19 +72,39 @@
                 width: 100%;
                 font-size: 16px;
                 padding: 5px;
+                box-shadow: 0px 3px 20px -9px grey;
+                border-radius: 5px;
+                border: 1px solid grey;
             }
             .control{
                 width: 80%;
                 margin: 0 auto;
                 div{
                     margin: 33px 0;
+                    position: relative;
                     label{
                         display: block;
                         margin-bottom: 11px;
+                        color: $accent1;
+                        span{
+                            color: red;
+                        }
                     }
                     textarea{
                         width: 100%;
                         resize: vertical;
+                        box-shadow: 0px 3px 20px -9px grey;
+                        border-radius: 5px;
+                        padding: 5px;
+
+                    }
+                    .newType{
+                        width: 50%;
+                        display: block;
+                        position: absolute;
+                        right: 0px;
+                        top: 0px;
+                        display: none;
                     }
                 }
             }
@@ -89,8 +112,16 @@
                 padding: 11px;
                 border: 1px solid #d4d4d4;
                 border-radius: 5px;
+                box-shadow: 0px 3px 20px -9px grey;
+                svg{
+                    margin-right: 44px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
                 input{
                     margin-bottom: 22px;
+                    box-shadow: none;
                 }
             }
 
