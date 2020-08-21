@@ -124,6 +124,44 @@
                     box-shadow: none;
                 }
             }
+            .images{
+                box-shadow: 0px 3px 20px -9px grey;
+                border-radius: 5px;
+                border: 1px solid grey;
+                padding: 11px;
+                .addImage{
+                    display: inline-block;
+                    padding: 5px 10px;
+                    text-align: center;
+                    border-radius: 5px;
+                    color: black;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                input{
+                    border: none;
+                    box-shadow: none;
+                    display: none;
+                }
+                .imgCont{
+                    position: relative;
+                    span{
+                        position: absolute;
+                        padding: 6px 8px 9px 11px;
+                        background: #ffffff;
+                        right: 0;
+                        border-bottom-left-radius: 28px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    img{
+                        width: 100%;
+                    }
+
+                }
+            }
 
         }
     }

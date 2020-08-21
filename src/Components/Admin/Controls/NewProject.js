@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { uniqueTypes } from '../../../assets/Functions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faMinus, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const NewProject = (props) => {
     const { projects } = props
@@ -12,7 +12,6 @@ const NewProject = (props) => {
         images: [],
         links: []
     })
-    console.log(addInfo)
     return (
         <div>
             <h2>New Project</h2>
@@ -81,9 +80,31 @@ const NewProject = (props) => {
                         })
                     }
                 </div>
-                <div>
+                <div className='images'>
                     <label>Images</label>
-                    <input type='file' />
+                    <div>
+                        <label htmlFor='addImage' className='addImage'><FontAwesomeIcon icon={faPlus} /></label>
+                        <input id='addImage' type='file' onChange={(e) => {
+                            setAddInfo({ ...addInfo, images: [...addInfo.images, e.target.files[0]] })
+                        }} />
+
+                    </div>
+                    {
+                        addInfo.images.map((img, i) => {
+                            return (
+                                <div className='imgCont' key={i}>
+                                    <span onClick={() => {
+                                        let copy = [...addInfo.images]
+                                        copy.splice(i, 1)
+                                        setAddInfo({ ...addInfo, images: [...copy] })
+                                    }}>
+                                        <FontAwesomeIcon icon={faTimes} />
+                                    </span>
+                                    <img src={URL.createObjectURL(img)} />
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>
