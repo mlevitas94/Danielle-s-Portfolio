@@ -50,7 +50,7 @@ const Project = (props) => {
                                 :
                                 <div className='links'>
                                     {
-                                        selectedProject?.map((link, i) => {
+                                        selectedProject?.links.map((link, i) => {
                                             return (
                                                 <a rel="noopener noreferrer" key={i} target='_blank' href={link.hyperlink}>{link.caption}</a>
                                             )
