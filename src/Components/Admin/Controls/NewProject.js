@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { uniqueTypes } from '../../../assets/Functions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTimes } from '@fortawesome/free-solid-svg-icons'
+import Axios from 'axios'
 
 const NewProject = (props) => {
     const { projects } = props
@@ -10,8 +11,56 @@ const NewProject = (props) => {
         content: '',
         type: '',
         images: [],
+        imageURLS : [],
         links: []
     })
+
+    const submitProject = () => {
+        const {title, content, type} = addInfo
+        if(!title, !content, !type){
+            return console.log('required info needed')
+        }
+
+        addInfo.images.forEach((file,i) => {
+            const getSignedRequest = async (file) => {
+                const fileName = `${file.name.replace(/\s/g, '-')}`;
+
+                Axios.get('/api/signs3', {
+                    params: {
+                        'file-name': fileName,
+                        'file-type': file.type
+                    }
+                })
+                    .then(res => {
+                        const { signedRequest, url } = res.data;
+                        uploadFile(file, signedRequest, url)
+
+                    })
+                    .catch(err => {
+                        //sign didnt happen
+                        console.log(err)
+                    })
+
+                const uploadFile = async (file, signedRequest, url) => {
+                    const options = {
+                        headers: {
+                            'Content-Type': file.type,
+                        },
+                    };
+
+                    Axios.put(signedRequest, file, options).then(res => {
+                        //when upload is successfull
+                        //push url to imagesURL
+
+
+                    }).catch(err => {
+           
+                    });
+                };
+            }
+            getSignedRequest(file)
+        })
+    }
     return (
         <div>
             <h2>New Project</h2>
