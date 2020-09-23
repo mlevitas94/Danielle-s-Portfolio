@@ -79,6 +79,19 @@
             .control{
                 width: 80%;
                 margin: 0 auto;
+                button{
+                    background-color: $accent1;
+                    border: none;
+                    padding: 5px 10px;
+                    font-family: $fontStyle1;
+                    font-size: $size1;
+                    margin: 0 auto;
+                    display: block;
+                    border-radius: 5px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
                 div{
                     margin: 33px 0;
                     position: relative;
@@ -110,7 +123,7 @@
             }
             .links{
                 padding: 11px;
-                border: 1px solid #d4d4d4;
+                border: 1px solid grey;
                 border-radius: 5px;
                 box-shadow: 0px 3px 20px -9px grey;
                 svg{

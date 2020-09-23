@@ -5,6 +5,7 @@ const massive = require('massive');
 const public = require('./publicendpoints/public')
 const admin = require('./adminEndpoints/admin')
 const session = require('express-session')
+const s3 = require('./adminEndpoints/s3')
 
 const {SERVER_PORT, DB_URL, user, pass, SESSION_SECRET} = process.env
 const path = require('path')
@@ -33,6 +34,11 @@ app.get('/getprojects', public.getProjects)
 app.post('/createadmin/', admin.checkAdmin, admin.createAdmin)
 app.post('/login/', admin.login)
 app.get('/getadmin/', admin.getAdmin)
+app.post('/newproject', admin.newProject)
+
+
+//s3
+app.get('/api/signs3', s3.generateUrl)
 
 
 app.post('/email', async (req,res) => {

@@ -1,4 +1,4 @@
-insert into deportfolio(
+insert into deprojectstest(
     title,
     blurb,
     images,

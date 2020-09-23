@@ -11,56 +11,83 @@ const NewProject = (props) => {
         content: '',
         type: '',
         images: [],
-        imageURLS : [],
+        imageURLS: [],
         links: []
     })
 
-    const submitProject = () => {
-        const {title, content, type} = addInfo
-        if(!title, !content, !type){
+    const submitProject = async () => {
+        const { title, content, type } = addInfo
+        const button = document.querySelector('.newProject button')
+        if (!title || !content || !type) {
             return console.log('required info needed')
         }
 
-        addInfo.images.forEach((file,i) => {
-            const getSignedRequest = async (file) => {
-                const fileName = `${file.name.replace(/\s/g, '-')}`;
-
-                Axios.get('/api/signs3', {
-                    params: {
-                        'file-name': fileName,
-                        'file-type': file.type
-                    }
-                })
-                    .then(res => {
-                        const { signedRequest, url } = res.data;
-                        uploadFile(file, signedRequest, url)
-
-                    })
-                    .catch(err => {
-                        //sign didnt happen
-                        console.log(err)
-                    })
-
-                const uploadFile = async (file, signedRequest, url) => {
-                    const options = {
-                        headers: {
-                            'Content-Type': file.type,
-                        },
-                    };
-
-                    Axios.put(signedRequest, file, options).then(res => {
-                        //when upload is successfull
-                        //push url to imagesURL
+        button.disabled = true
 
 
-                    }).catch(err => {
-           
-                    });
+        const getSignedRequest = async (file, i) => {
+            const uploadFile = async (file, signedRequest, url) => {
+                const options = {
+                    headers: {
+                        'Content-Type': file.type,
+                    },
                 };
-            }
-            getSignedRequest(file)
+
+                Axios.put(signedRequest, file, options).then(res => {
+                    console.log('uploaded')
+                    if (i + 1 === addInfo.images.length) {
+                        let copy = {
+                            ...addInfo,
+                            imageURLS: [...addInfo.imageURLS, url]
+                        }
+                        delete copy.images
+
+                        return Axios.post('/newproject', copy).then(res => {
+                            button.disabled = false
+                            console.log('done')
+                            setAddInfo({
+                                title: '',
+                                content: '',
+                                type: '',
+                                images: [],
+                                imageURLS: [],
+                                links: []
+                            })
+                        }).catch(err => {
+                            console.log(err)
+                        })
+                    }
+                    setAddInfo({ ...addInfo, imageURLS: [...addInfo.imageURLS, url] })
+
+                }).catch(err => {
+                    return console.log(err, 'did not upload')
+                });
+            };
+
+            Axios.get('/api/signs3', {
+                params: {
+                    'file-name': file.name,
+                    'file-type': file.type
+                }
+            })
+                .then(async (res) => {
+                    const { signedRequest, url } = res.data;
+                    await uploadFile(file, signedRequest, url)
+
+                })
+                .catch(err => {
+                    //sign didnt happen
+                    return console.log(err, 'sign didnt happen')
+                })
+        }
+
+
+        addInfo.images.forEach(async (file, i) => {
+            await getSignedRequest(file, i)
         })
+
     }
+    console.log(addInfo)
     return (
         <div>
             <h2>New Project</h2>
@@ -155,6 +182,9 @@ const NewProject = (props) => {
                         })
                     }
                 </div>
+                <button onClick={() => {
+                    submitProject()
+                }}>Submit</button>
             </div>
         </div>
     )
