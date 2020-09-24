@@ -15,7 +15,7 @@ const NewProject = (props) => {
         links: []
     })
 
-    const submitProject = async () => {
+    const submitProject = () => {
         const { title, content, type } = addInfo
         const button = document.querySelector('.newProject button')
         if (!title || !content || !type) {
@@ -38,9 +38,7 @@ const NewProject = (props) => {
                             },
                         };
         
-                        Axios.put(signedRequest, file, options).then(async (res) => {
-                            console.log('uploaded')
-                            copy.imageURLS = [...copy.imageURLS, url]
+                        Axios.put(signedRequest, file, options).then( (res) => {
                             resolveTwo()
         
                         }).catch(err => {
@@ -58,10 +56,12 @@ const NewProject = (props) => {
                     .then(async (res) => {
     
                         const { signedRequest, url } = res.data;
-                        await uploadFile(file, signedRequest, url)
-                        resolve()
-    
-    
+                        await uploadFile(file, signedRequest, url).then(res => {
+                            resolve({order: i, data: url})
+                        }).catch(err => {
+                            console.log(err)
+                        })
+ 
                     })
                     .catch(err => {
                         //sign didnt happen
@@ -73,9 +73,22 @@ const NewProject = (props) => {
 
 
         Promise.all(addInfo.images.map(async (file, i) => {
-            await getSignedRequest(file, i)
+            await getSignedRequest(file, i).then(res => {
+                copy.imageURLS.push(res)
+            }).catch(err => {
+
+            })
         })).then(res => {
-                
+            let URLcopy = []
+            copy.imageURLS.sort((a,b) => {
+                return a.order - b.order
+            })
+            copy.imageURLS.forEach(URLinfo => {
+                URLcopy.push(URLinfo.data)
+            })
+
+            copy.imageURLS = URLcopy
+            
             Axios.post('/newproject', copy).then(res => {
                 button.disabled = false
                 console.log('done')
@@ -96,7 +109,6 @@ const NewProject = (props) => {
         })
 
     }
-    console.log(addInfo)
     return (
         <div>
             <h2>New Project</h2>
