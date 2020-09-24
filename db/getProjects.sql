@@ -1,1 +1,1 @@
-select * from deprojects
+select * from deprojectstest

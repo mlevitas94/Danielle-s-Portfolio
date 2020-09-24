@@ -76,10 +76,14 @@ module.exports = {
     newProject : async (req,res) => {
         const db = req.app.get('db')
         const {title, content, type, imageURLS, links} = req.body
-        console.log(req.body)
 
         if(!title, !content, !type){
             return res.status(401).send('Needs required info')
+        }
+        for(let i = 0; i < links.length ; i++){
+            if(!links[i].caption || !links[i].hyperlink){
+                return res.status(401).send('Needs required info')
+            }
         }
 
         try{

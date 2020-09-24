@@ -18,7 +18,7 @@ const Projects = (props) => {
                     <h3>{project.title}</h3>
                 </div>
                 <div className='bottom'>
-                    <img alt='Project Image' src={project.images[0]} />
+                    {project.images.length === 0 ? null : <img alt='Project Image' src={project.images[0]} />}
                     <pre>{project.blurb}</pre>
                 </div>
                 <div className='moreButton'>

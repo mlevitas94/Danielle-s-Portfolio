@@ -12,19 +12,29 @@ const NewProject = (props) => {
         type: '',
         images: [],
         imageURLS: [],
-        links: []
+        links: [],
+        loading: false
     })
 
     const submitProject = () => {
         const { title, content, type } = addInfo
         const button = document.querySelector('.newProject button')
         if (!title || !content || !type) {
-            return console.log('required info needed')
+            return status.innerHTML = 'Required info needed'
         }
+        for (let i = 0; i < addInfo.links.length; i++) {
+            if (!addInfo.links[i].caption || !addInfo.links[i].hyperlink) {
+                return status.innerHTML = 'Required info needed'
+            }
+        }
+        setAddInfo({ ...addInfo, loading: true })
         let copy = { ...addInfo }
+        const status = document.querySelector('.statusMsg')
         delete copy.images
+        delete copy.loading
 
         button.disabled = true
+        status.innerHTML = ''
 
 
 
@@ -37,16 +47,18 @@ const NewProject = (props) => {
                                 'Content-Type': file.type,
                             },
                         };
-        
-                        Axios.put(signedRequest, file, options).then( (res) => {
+
+                        Axios.put(signedRequest, file, options).then((res) => {
                             resolveTwo()
-        
+
                         }).catch(err => {
+                            status.innerHTML = 'Server Error'
+                            setAddInfo({ ...addInfo, loading: false })
                             return console.log(err, 'did not upload')
                         });
                     })
                 };
-    
+
                 Axios.get('/api/signs3', {
                     params: {
                         'file-name': file.name,
@@ -54,17 +66,21 @@ const NewProject = (props) => {
                     }
                 })
                     .then(async (res) => {
-    
+
                         const { signedRequest, url } = res.data;
                         await uploadFile(file, signedRequest, url).then(res => {
-                            resolve({order: i, data: url})
+                            resolve({ order: i, data: url })
                         }).catch(err => {
+                            status.innerHTML = 'Server Error'
+                            setAddInfo({ ...addInfo, loading: false })
                             console.log(err)
                         })
- 
+
                     })
                     .catch(err => {
                         //sign didnt happen
+                        status.innerHTML = 'Server Error'
+                        setAddInfo({ ...addInfo, loading: false })
                         return console.log(err, 'sign didnt happen')
                     })
 
@@ -76,11 +92,12 @@ const NewProject = (props) => {
             await getSignedRequest(file, i).then(res => {
                 copy.imageURLS.push(res)
             }).catch(err => {
-
+                setAddInfo({ ...addInfo, loading: false })
+                status.innerHTML = 'Server Error'
             })
         })).then(res => {
             let URLcopy = []
-            copy.imageURLS.sort((a,b) => {
+            copy.imageURLS.sort((a, b) => {
                 return a.order - b.order
             })
             copy.imageURLS.forEach(URLinfo => {
@@ -88,7 +105,7 @@ const NewProject = (props) => {
             })
 
             copy.imageURLS = URLcopy
-            
+
             Axios.post('/newproject', copy).then(res => {
                 button.disabled = false
                 console.log('done')
@@ -98,13 +115,20 @@ const NewProject = (props) => {
                     type: '',
                     images: [],
                     imageURLS: [],
-                    links: []
+                    links: [],
+                    loading: false
                 })
+                status.innerHTML = 'Project Uploaded!'
+
 
             }).catch(err => {
+                status.innerHTML = 'Server Error'
+                setAddInfo({ ...addInfo, loading: false })
                 console.log(err)
             })
         }).catch(err => {
+            status.innerHTML = 'Server Error'
+            setAddInfo({ ...addInfo, loading: false })
             console.log(err)
         })
 
@@ -166,10 +190,10 @@ const NewProject = (props) => {
                         addInfo.links.map((link, i) => {
                             return (
                                 <div key={i}>
-                                    <input value={link.caption} placeholder='Caption' onChange={(e) => {
+                                    <span>*</span><input value={link.caption} placeholder='Caption' onChange={(e) => {
                                         setAddInfo({ ...addInfo, links: [...addInfo.links.slice(0, i), { ...link, caption: e.target.value }, ...addInfo.links.slice(i + 1)] })
                                     }} />
-                                    <input value={link.hyperlink} placeholder='Hyperlink' onChange={(e) => {
+                                    <span>*</span><input value={link.hyperlink} placeholder='Hyperlink (https://)' onChange={(e) => {
                                         setAddInfo({ ...addInfo, links: [...addInfo.links.slice(0, i), { ...link, hyperlink: e.target.value }, ...addInfo.links.slice(i + 1)] })
                                     }} />
                                 </div>
@@ -203,9 +227,18 @@ const NewProject = (props) => {
                         })
                     }
                 </div>
-                <button onClick={() => {
-                    submitProject()
-                }}>Submit</button>
+                <p className='statusMsg'></p>
+                {
+                    addInfo.loading ?
+                        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+                        :
+
+                        <button onClick={() => {
+                            submitProject()
+                        }}>Submit</button>
+
+                }
+
             </div>
         </div>
     )
