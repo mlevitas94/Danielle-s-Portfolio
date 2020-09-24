@@ -21,69 +21,78 @@ const NewProject = (props) => {
         if (!title || !content || !type) {
             return console.log('required info needed')
         }
+        let copy = { ...addInfo }
+        delete copy.images
 
         button.disabled = true
 
 
+
         const getSignedRequest = async (file, i) => {
-            const uploadFile = async (file, signedRequest, url) => {
-                const options = {
-                    headers: {
-                        'Content-Type': file.type,
-                    },
-                };
-
-                Axios.put(signedRequest, file, options).then(res => {
-                    console.log('uploaded')
-                    if (i + 1 === addInfo.images.length) {
-                        let copy = {
-                            ...addInfo,
-                            imageURLS: [...addInfo.imageURLS, url]
-                        }
-                        delete copy.images
-
-                        return Axios.post('/newproject', copy).then(res => {
-                            button.disabled = false
-                            console.log('done')
-                            setAddInfo({
-                                title: '',
-                                content: '',
-                                type: '',
-                                images: [],
-                                imageURLS: [],
-                                links: []
-                            })
+            return new Promise((resolve, reject) => {
+                const uploadFile = (file, signedRequest, url) => {
+                    return new Promise((resolveTwo, rejectTwo) => {
+                        const options = {
+                            headers: {
+                                'Content-Type': file.type,
+                            },
+                        };
+        
+                        Axios.put(signedRequest, file, options).then(async (res) => {
+                            console.log('uploaded')
+                            copy.imageURLS = [...copy.imageURLS, url]
+                            resolveTwo()
+        
                         }).catch(err => {
-                            console.log(err)
-                        })
+                            return console.log(err, 'did not upload')
+                        });
+                    })
+                };
+    
+                Axios.get('/api/signs3', {
+                    params: {
+                        'file-name': file.name,
+                        'file-type': file.type
                     }
-                    setAddInfo({ ...addInfo, imageURLS: [...addInfo.imageURLS, url] })
+                })
+                    .then(async (res) => {
+    
+                        const { signedRequest, url } = res.data;
+                        await uploadFile(file, signedRequest, url)
+                        resolve()
+    
+    
+                    })
+                    .catch(err => {
+                        //sign didnt happen
+                        return console.log(err, 'sign didnt happen')
+                    })
 
-                }).catch(err => {
-                    return console.log(err, 'did not upload')
-                });
-            };
-
-            Axios.get('/api/signs3', {
-                params: {
-                    'file-name': file.name,
-                    'file-type': file.type
-                }
             })
-                .then(async (res) => {
-                    const { signedRequest, url } = res.data;
-                    await uploadFile(file, signedRequest, url)
-
-                })
-                .catch(err => {
-                    //sign didnt happen
-                    return console.log(err, 'sign didnt happen')
-                })
         }
 
 
-        addInfo.images.forEach(async (file, i) => {
+        Promise.all(addInfo.images.map(async (file, i) => {
             await getSignedRequest(file, i)
+        })).then(res => {
+                
+            Axios.post('/newproject', copy).then(res => {
+                button.disabled = false
+                console.log('done')
+                setAddInfo({
+                    title: '',
+                    content: '',
+                    type: '',
+                    images: [],
+                    imageURLS: [],
+                    links: []
+                })
+
+            }).catch(err => {
+                console.log(err)
+            })
+        }).catch(err => {
+            console.log(err)
         })
 
     }

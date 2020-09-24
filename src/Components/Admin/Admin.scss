@@ -91,6 +91,9 @@
                     &:hover{
                         cursor: pointer;
                     }
+                    &:disabled{
+                        cursor: no-drop;
+                    }
                 }
                 div{
                     margin: 33px 0;
