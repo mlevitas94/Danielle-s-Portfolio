@@ -18,6 +18,8 @@ const NewProject = (props) => {
 
     const submitProject = () => {
         const { title, content, type } = addInfo
+        const status = document.querySelector('.statusMsg')
+
         const button = document.querySelector('.newProject button')
         if (!title || !content || !type) {
             return status.innerHTML = 'Required info needed'
@@ -29,7 +31,6 @@ const NewProject = (props) => {
         }
         setAddInfo({ ...addInfo, loading: true })
         let copy = { ...addInfo }
-        const status = document.querySelector('.statusMsg')
         delete copy.images
         delete copy.loading
 

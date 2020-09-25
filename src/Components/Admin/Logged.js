@@ -1,5 +1,6 @@
 import React from 'react'
 import NewProject from './Controls/NewProject'
+import DeleteProject from './Controls/DeleteProject'
 
 const Logged = (props) => {
     const {projects} = props
@@ -7,6 +8,7 @@ const Logged = (props) => {
         <div className='loggedCont'>
             <div className='controlBox'>
                 <NewProject projects={projects}/>
+                <DeleteProject projects={projects}/>
             </div>
         </div>
     )

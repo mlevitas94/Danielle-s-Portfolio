@@ -78,7 +78,9 @@
             }
             .control{
                 width: 80%;
-                margin: 0 auto;
+                margin: 0 auto 44px auto;
+                border-bottom: 1px solid black;
+                padding-bottom: 44px;
                 p{
                     margin: 11px auto;
                     text-align: center;
@@ -136,62 +138,81 @@
                         display: none;
                     }
                 }
-            }
-            .links{
-                padding: 11px;
-                border: 1px solid grey;
-                border-radius: 5px;
-                box-shadow: 0px 3px 20px -9px grey;
-                span{
-                    color: red;
-                }
-                svg{
-                    margin-right: 44px;
-                    &:hover{
-                        cursor: pointer;
-                    }
-                }
-                input{
-                    margin-bottom: 22px;
-                    box-shadow: none;
-                }
-            }
-            .images{
-                box-shadow: 0px 3px 20px -9px grey;
-                border-radius: 5px;
-                border: 1px solid grey;
-                padding: 11px;
-                .addImage{
-                    display: inline-block;
-                    padding: 5px 10px;
-                    text-align: center;
+                .links{
+                    padding: 11px;
+                    border: 1px solid grey;
                     border-radius: 5px;
-                    color: black;
-                    &:hover{
-                        cursor: pointer;
-                    }
-                }
-                input{
-                    border: none;
-                    box-shadow: none;
-                    display: none;
-                }
-                .imgCont{
-                    position: relative;
+                    box-shadow: 0px 3px 20px -9px grey;
                     span{
-                        position: absolute;
-                        padding: 6px 8px 9px 11px;
-                        background: #ffffff;
-                        right: 0;
-                        border-bottom-left-radius: 28px;
+                        color: red;
+                    }
+                    svg{
+                        margin-right: 44px;
                         &:hover{
                             cursor: pointer;
                         }
                     }
-                    img{
-                        width: 100%;
+                    input{
+                        margin-bottom: 22px;
+                        box-shadow: none;
                     }
-
+                }
+                .images{
+                    box-shadow: 0px 3px 20px -9px grey;
+                    border-radius: 5px;
+                    border: 1px solid grey;
+                    padding: 11px;
+                    .addImage{
+                        display: inline-block;
+                        padding: 5px 10px;
+                        text-align: center;
+                        border-radius: 5px;
+                        color: black;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    input{
+                        border: none;
+                        box-shadow: none;
+                        display: none;
+                    }
+                    .imgCont{
+                        position: relative;
+                        span{
+                            position: absolute;
+                            padding: 6px 8px 9px 11px;
+                            background: #ffffff;
+                            right: 0;
+                            border-bottom-left-radius: 28px;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                        img{
+                            width: 100%;
+                        }
+    
+                    }
+                }
+            }
+            .deleteProject{
+                .proj{
+                    position: relative;
+                    border: 1px solid grey;
+                    padding: 22px;
+                    border-radius: 10px;
+                    box-shadow: 0px 3px 20px -9px grey;
+                    margin: 55px auto;
+                    button{
+                        margin: 22px 0 0 auto;
+                        font-size: 16px;
+                    }
+                    h3{
+                        position: absolute;
+                        top: -22px;
+                        font-style: italic;
+                    }
                 }
             }
 
