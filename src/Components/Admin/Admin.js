@@ -4,7 +4,7 @@ import Login from './Login';
 import Logged from './Logged';
 
 const Admin = (props) => {
-    const {admin, setAdmin, projects} = props
+    const {admin, setAdmin, projects, setProjects} = props
 
     return (
         <div className='page'>
@@ -14,7 +14,7 @@ const Admin = (props) => {
                         {admin ? <Redirect to='/admin/logged' /> : <Login admin={admin} setAdmin={setAdmin} />}
                     </Route>
                     <Route exact path='/admin/logged'>
-                        {!admin ? <Redirect to='/admin'/> : <Logged admin={admin} setAdmin={setAdmin} projects={projects} />}
+                        {!admin ? <Redirect to='/admin'/> : <Logged admin={admin} setAdmin={setAdmin} projects={projects} setProjects={setProjects}/>}
                     </Route>
                 </Switch>
             </div>

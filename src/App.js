@@ -26,8 +26,13 @@ function App() {
     document.querySelector('.lds-ring').style.opacity = '1'
     document.querySelector('.lds-ring').style.transform = 'translate(0px, 0px) scale(1.3)'
     Axios.get('/getprojects/').then(res => {
+      let ordered = res.data
+      ordered.sort((a, b) => {
+        return a.type.localeCompare(b.type)
+    })
+
       setAssets((prevState) => { return { ...prevState, projects: true } })
-      setProjects(res.data)
+      setProjects([...ordered])
     }).catch(err => {
       console.log(err)
     })
@@ -57,7 +62,7 @@ function App() {
                   <Switch location={location}>
                     <Route exact path='/' component={Landing} />
                     <Route exact path='/about' component={About} />
-                    <Route path='/admin' component={() => <Admin admin={admin} setAdmin={setAdmin} projects={projects}/>}/>
+                    <Route path='/admin' component={() => <Admin admin={admin} setAdmin={setAdmin} projects={projects} setProjects={setProjects}/>}/>
                     <Route exact path='/contact' component={Contact} />
                     <Route path='/projects' component={() => <Projects selectedType={selectedType} setType={setType} projects={projects} setProjects={setProjects} selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>}/>
                     <Route render={() => {

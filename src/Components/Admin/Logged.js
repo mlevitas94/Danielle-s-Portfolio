@@ -3,12 +3,12 @@ import NewProject from './Controls/NewProject'
 import DeleteProject from './Controls/DeleteProject'
 
 const Logged = (props) => {
-    const {projects} = props
+    const {projects, setProjects} = props
     return (
         <div className='loggedCont'>
             <div className='controlBox'>
                 <NewProject projects={projects}/>
-                <DeleteProject projects={projects}/>
+                <DeleteProject projects={projects} setProjects={setProjects}/>
             </div>
         </div>
     )
