@@ -8,14 +8,14 @@ const Login = (props) => {
         username: '',
         password: ''
     })
-    // useEffect(() => {
-    //     if (!admin) {
-    //         Axios.get('/getadmin/').then(res => {
-    //             setAdmin(true)
-    //         }).catch(err => {
-    //         })
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (!admin) {
+            Axios.get('/getadmin/').then(res => {
+                setAdmin(true)
+            }).catch(err => {
+            })
+        }
+    }, [])
 
     const Login = () => {
         const { username, password } = login

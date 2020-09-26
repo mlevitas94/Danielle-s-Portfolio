@@ -13,7 +13,6 @@ module.exports = {
         try{
             let user = await db.adminLogin(username);
             user = user[0]
-
             if(!user){
                 return res.status(401).send('Invalid Username or Password')
             }

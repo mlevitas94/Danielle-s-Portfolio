@@ -20,7 +20,7 @@ function App() {
   const [projects, setProjects] = useState([])
   const [selectedProject, setSelectedProject] = useState(null)
   const [selectedType, setType] = useState('')
-  const [admin, setAdmin] = useState(true)
+  const [admin, setAdmin] = useState(false)
 
   useEffect(() => {
     document.querySelector('.lds-ring').style.opacity = '1'

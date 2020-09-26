@@ -31,11 +31,11 @@ app.get('/getprojects', public.getProjects)
 
 
 //admin endpoints
-app.post('/createadmin/', admin.checkAdmin, admin.createAdmin)
-app.post('/login/', admin.login)
-app.get('/getadmin/', admin.getAdmin)
-app.post('/newproject', admin.newProject)
-app.post('/deleteproject', admin.deleteProject)
+app.post('/createadmin',admin.checkAdmin, admin.createAdmin)
+app.post('/login', admin.login)
+app.get('/getadmin',admin.checkAdmin, admin.getAdmin)
+app.post('/newproject',admin.checkAdmin, admin.newProject)
+app.post('/deleteproject',admin.checkAdmin, admin.deleteProject)
 
 
 //s3

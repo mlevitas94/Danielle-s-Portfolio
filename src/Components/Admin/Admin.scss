@@ -4,15 +4,6 @@
     height: 100%;
     font-family: $fontStyle2;
     overflow: auto;
-    .lds-ring{
-        position: relative;
-        opacity: 1;
-        margin-left: auto;
-        margin-right: auto;
-        div{
-            position: absolute;
-        }
-    }
     .loginCont{
         display: flex;
         justify-content: center;
@@ -86,6 +77,9 @@
                 background-color: white;
                 padding: 44px;
                 border-radius: 10px;
+                .deleted{
+                    text-decoration: underline;
+                }
                 p{
                     font-size: $size1;
                     margin: 11px 0;
@@ -146,6 +140,15 @@
                 margin: 0 auto 44px auto;
                 border-bottom: 1px solid black;
                 padding-bottom: 44px;
+                .lds-ring{
+                    position: relative;
+                    opacity: 1;
+                    margin-left: auto;
+                    margin-right: auto;
+                    div{
+                        position: absolute;
+                    }
+                }
                 p{
                     margin: 11px auto;
                     text-align: center;

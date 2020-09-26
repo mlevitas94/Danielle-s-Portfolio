@@ -16,7 +16,32 @@ const DeleteProject = (props) => {
         Axios.post('/deleteproject', {id}).then(res => {
             const projectRemoved = projects.slice()
             projectRemoved.splice(i, 1)
-            setProjects([...projectRemoved])
+            document.querySelector('.deleted').innerHTML = 'Project Deleted'
+            document.querySelector('.deleteConfirm .lds-ring').style.display = 'none'
+            setTimeout( () =>{
+                setProjects([...projectRemoved])
+                setConfirm({
+                    confirmOn: false,
+                    title: '',
+                    selected : null,
+                    id: null
+                })
+            }, 2000)
+        }).catch(err => {
+            const projectRemoved = projects.slice()
+            projectRemoved.splice(i, 1)
+            document.querySelector('.deleted').innerHTML = 'Server Error'
+            document.querySelector('.deleteConfirm .lds-ring').style.display = 'none'
+            setTimeout(() =>{
+                setProjects([...projectRemoved])
+                setConfirm({
+                    confirmOn: false,
+                    title: '',
+                    selected : null,
+                    id: null
+                }, 2000)
+
+            })
         })
     }
     const deleteConfirm = () => {
@@ -33,7 +58,6 @@ const DeleteProject = (props) => {
                                 :
                                 <>
                                     <button onClick={() => {
-                                        console.log(confirm.id)
                                         setConfirm({ ...confirm, deleting: true })
                                         deleteProject(confirm.selected, confirm.id)
                                     }}>Yes</button>
@@ -48,6 +72,7 @@ const DeleteProject = (props) => {
                                 </>
                         }
                     </div>
+                    <p className='deleted'></p>
                 </div>
             </div>
         )
