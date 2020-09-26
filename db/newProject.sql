@@ -1,4 +1,4 @@
-insert into deprojectstest(
+insert into deprojects(
     title,
     blurb,
     images,

@@ -67,7 +67,6 @@ const Contact = () => {
                 messageStatus.style.opacity = '0'
                 messageStatus.style.transform = 'translate(0px, 0px)'
             }, 3000);
-            console.log(err)
         })
     }
 

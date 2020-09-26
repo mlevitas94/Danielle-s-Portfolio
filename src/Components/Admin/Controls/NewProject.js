@@ -55,7 +55,7 @@ const NewProject = (props) => {
                         }).catch(err => {
                             status.innerHTML = 'Server Error'
                             setAddInfo({ ...addInfo, loading: false })
-                            return console.log(err, 'did not upload')
+                            return 
                         });
                     })
                 };
@@ -74,7 +74,6 @@ const NewProject = (props) => {
                         }).catch(err => {
                             status.innerHTML = 'Server Error'
                             setAddInfo({ ...addInfo, loading: false })
-                            console.log(err)
                         })
 
                     })
@@ -82,7 +81,7 @@ const NewProject = (props) => {
                         //sign didnt happen
                         status.innerHTML = 'Server Error'
                         setAddInfo({ ...addInfo, loading: false })
-                        return console.log(err, 'sign didnt happen')
+                        return
                     })
 
             })
@@ -109,7 +108,6 @@ const NewProject = (props) => {
 
             Axios.post('/newproject', copy).then(res => {
                 button.disabled = false
-                console.log('done')
                 setAddInfo({
                     title: '',
                     content: '',
@@ -125,12 +123,10 @@ const NewProject = (props) => {
             }).catch(err => {
                 status.innerHTML = 'Server Error'
                 setAddInfo({ ...addInfo, loading: false })
-                console.log(err)
             })
         }).catch(err => {
             status.innerHTML = 'Server Error'
             setAddInfo({ ...addInfo, loading: false })
-            console.log(err)
         })
 
     }
