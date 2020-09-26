@@ -8,11 +8,12 @@ const DeleteProject = (props) => {
         confirmOn: false,
         title: '',
         deleting: false, 
-        selected : null
+        selected : null,
+        id: null
     })
 
-    const deleteProject = (title, i) => {
-        Axios.post('/deleteproject', title).then(res => {
+    const deleteProject = (i, id) => {
+        Axios.post('/deleteproject', {id}).then(res => {
             const projectRemoved = projects.slice()
             projectRemoved.splice(i, 1)
             setProjects([...projectRemoved])
@@ -32,14 +33,16 @@ const DeleteProject = (props) => {
                                 :
                                 <>
                                     <button onClick={() => {
+                                        console.log(confirm.id)
                                         setConfirm({ ...confirm, deleting: true })
-                                        deleteProject(confirm.title, confirm.selected)
+                                        deleteProject(confirm.selected, confirm.id)
                                     }}>Yes</button>
                                     <button onClick={() => {
                                         setConfirm({
                                             confirmOn: false,
                                             title: '',
-                                            selected : null
+                                            selected : null,
+                                            id: null
                                         })
                                     }}>No</button>
                                 </>
@@ -65,7 +68,8 @@ const DeleteProject = (props) => {
                                 setConfirm({
                                     confirmOn: true,
                                     title: proj.title,
-                                    selected : i
+                                    selected : i,
+                                    id : proj.id
                                 })
                             }}>Delete</button>
                         </div>
@@ -76,7 +80,14 @@ const DeleteProject = (props) => {
                 return (
                     <div className='proj' key={i}>
                         <p>{proj.title}</p>
-                        <button>Delete</button>
+                        <button onClick={() => {
+                                setConfirm({
+                                    confirmOn: true,
+                                    title: proj.title,
+                                    selected : i,
+                                    id : proj.id
+                                })
+                            }}>Delete</button>
                     </div>
                 )
             }

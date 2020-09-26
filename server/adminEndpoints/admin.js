@@ -94,5 +94,17 @@ module.exports = {
         }
 
 
+    },
+    deleteProject : async (req,res) => {
+        const db = req.app.get('db')
+        const {id} = req.body
+        console.log(req.body)
+
+        try{
+            await db.deleteProject(id)
+            return res.status(200).send('Project deleted')
+        }catch(err){
+            return res.status(500).send(err)
+        }
     }
 }

@@ -35,6 +35,7 @@ app.post('/createadmin/', admin.checkAdmin, admin.createAdmin)
 app.post('/login/', admin.login)
 app.get('/getadmin/', admin.getAdmin)
 app.post('/newproject', admin.newProject)
+app.post('/deleteproject', admin.deleteProject)
 
 
 //s3
